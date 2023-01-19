@@ -1,10 +1,5 @@
 import java.util.*;
-
-public class Mid {
-  public String alpha;
-  public String firstName;
-  public String lastName;
-  public int company;
+public class HW3{
 
   public static Mid createMid(Scanner in){
     Mid A = new Mid();
@@ -23,13 +18,21 @@ public class Mid {
     System.out.println(A.alpha + " " + A.lastName + " " + A.firstName + " " + A.company);
     return;
   }
-
-
-
   public static void main(String[] args){
     Scanner in = new Scanner(System.in);
-    Mid A = createMid(in);
-    printMid(A);
-
+    System.out.print("How many mids? ");
+    int n = in.nextInt();
+    Mid[] A = new Mid[n];
+    for(int i = 0; i < n; i++){
+      A[i] = createMid(in);
+    }
+    System.out.print("What company would you like to print out? ");
+    int c = in.nextInt();
+    for(int i = 0; i < n; i++){
+      if(A[i].company == c)
+        printMid(A[i]);
+    }
   }
+
 }
+
