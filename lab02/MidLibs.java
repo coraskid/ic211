@@ -4,8 +4,19 @@ public class MidLibs{
     Random rand = new Random(890);
     for(int i = 0; i < A.length; i++){
       if(A[i].charAt(0) == '@'){
-        if (A[i].charAt(1) == 'n' && A.length == 5)
-          System.out.print("Hi");
+        if (A[i].equals("@nounp")){
+          int k = rand.nextInt(n.length);
+          A[i] = n[k] + 's';
+        }
+        else if (A[i].equals("@noun")){
+          A[i] = n[rand.nextInt(n.length)];
+        }
+        else if (A[i].equals("@verb")){
+          A[i] = v[rand.nextInt(v.length)];
+        }
+        else if (A[i].equals("@adjective")){
+          A[i] = adj[rand.nextInt(adj.length)];
+        }
       }
     }
     return A;
@@ -13,7 +24,6 @@ public class MidLibs{
   }
 
   public static void main(String args[]){
-    Random rand = new Random(890);
     if (args.length == 0){
       System.out.println("usage: java MidLibs <filename>");
       System.exit(1);
