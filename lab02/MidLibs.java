@@ -1,5 +1,19 @@
 import java.util.*;
+/**
+ * This class fills in a madlibs script
+ * @author cora skidmore and ryan schlicher
+ *
+ */
 public class MidLibs{
+  
+  /**
+   *This function takes a madlibs script and fills it in with random nouns, verbs and adj
+   *@param A The array of strings that is the madlib script
+   *@param n the array of nouns
+   *@param adj the array of adjectives
+   *@param v the array of verbs
+   *@return an array of strings that is the filled in madlibs script
+   */
   public static String[] replace(String[] A, String[] n, String[] adj, String[] v){
     Random rand = new Random(890);
     for(int i = 0; i < A.length; i++){

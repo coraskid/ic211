@@ -1,5 +1,7 @@
 public class Formatter {
     public static void writeInColumns(String[] A, int cols) {
+        //takes in an array of strings and a number of columns and formats the
+        //text in that size
         for(int i=0; i<A.length; i++) {
             int cnt = 1;
             String s = A[i];

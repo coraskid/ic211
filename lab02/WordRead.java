@@ -3,6 +3,7 @@ import java.util.*;
 
 public class WordRead {
   public static String[] get(String fname){
+    //turns an text file and turns it into an array of strings 
     Scanner sc = null;
     try {
       sc = new Scanner(new FileReader(fname));
@@ -22,10 +23,10 @@ public class WordRead {
   }
 
   public static void main(String[] args){
+    //tests function in WordRead.java
     String arr[] = get("nouns.txt");
     for(int i = 0; i < arr.length; i++){
       System.out.println(arr[i]);
     }
   }
 }
-
