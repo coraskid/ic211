@@ -1,5 +1,7 @@
 public class ListStuff {
+    
     public static StringNode addToFront(String s, StringNode Nold) {
+        //Adds new node to the front of the linked list
         StringNode Nnew = new StringNode();
         Nnew.data = s;
         Nnew.next = Nold;
@@ -7,6 +9,7 @@ public class ListStuff {
     }
 
     public static String[] listToArray(StringNode N) {
+        //Turns linked list into array
         int size = length(N);
         String arr[] = new String[size];
 
@@ -19,6 +22,7 @@ public class ListStuff {
     }
 
     public static int length(StringNode N) {
+        //returns length of linked list
         StringNode copy = N;
         int count = 0;
 
@@ -30,6 +34,7 @@ public class ListStuff {
     }
 
     public static void main(String[] args) {
+        //tests all functions in ListStuff.java
         StringNode N = null;      // at this point N *is* an empty list
         N = addToFront("rat",N);  // at this point N *is* the list ("rat")
         N = addToFront("dog",N);  // at this point N *is* the list ("dog","rat")
