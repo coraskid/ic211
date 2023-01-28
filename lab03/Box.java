@@ -65,6 +65,20 @@ public class Box {
 
   }
 
+  public void add(Scanner in){
+    Point p = Point.read(in);
+    this.growBy(p);
+    System.out.println("this is box add");
+  }
+
+  public void map(Scanner in){
+    Point p = Point.read(in);
+    Point k = b.mapIntoUnitSquare(p);
+    if(k == null){
+
+
+  }
+
   public static void main(String[] args){
     Point p = new Point(1,2);
     Point q = new Point(4,7);

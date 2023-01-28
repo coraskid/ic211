@@ -59,9 +59,6 @@ public class Lab03{
       System.out.println(command);
       command = in.next();
     }
-    if(command.equals("done")){
-      return;
-    }
     Point p = Point.read(in);
     Box B = new Box(p);
     //B.nextCmd(in);
@@ -72,9 +69,12 @@ public class Lab03{
     System.out.println(command);
     while(!command.equals("done!")){
       if(command.equals("add")){
-        Point k = Point.read(in);
-        B.growBy(k);    
+        B.add(in);
+        //Point k = Point.read(in);
+        //B.growBy(k);   
+        System.out.println(B.toString());
       }
+      command = in.next();
     }
     System.out.println(B.toString());
     
