@@ -1,12 +1,18 @@
 import java.util.*;
 
 public class Lab03{
-  private Box B;
-  private void add(Scanner in){
-        
-
-
-  }
+//private Box B;
+//private void nextCmd(Scanner in){
+//  String cmd = in.next();
+//  System.out.println(cmd);
+//  while(!cmd.equals("done!")){
+//  if(cmd.equals("add")){
+//      Point k = Point.read(in);
+//      this.growBy(k);    
+//    }
+//  }
+//  System.out.println(this.toString());
+//}
 
 
   public static void main(String[] args){
@@ -26,15 +32,15 @@ public class Lab03{
     String command = in.next();
 
     boolean boxCreated = false;
-    var B;
+    //var B;
     //if (Lab03.B == null){
     //  System.out.println("PLEASE");
     //}
     //System.out.println(B.toString());
     while (!command.equals("done")){
       if(command.equals("add")){
-        Point p = Point.read(in);
-        Box B = new Box(p);
+        //Point p = Point.read(in);
+        //Box B = new Box(p);
         //else if(B==null){
           //System.out.println("no")
           //B.growBy(p);
@@ -53,8 +59,25 @@ public class Lab03{
       System.out.println(command);
       command = in.next();
     }
+    if(command.equals("done")){
+      return;
+    }
+    Point p = Point.read(in);
+    Box B = new Box(p);
+    //B.nextCmd(in);
     System.out.println("OUt?");
-    System.out.println(B.toString);
+    System.out.println(B.toString());
+
+    command = in.next();
+    System.out.println(command);
+    while(!command.equals("done!")){
+      if(command.equals("add")){
+        Point k = Point.read(in);
+        B.growBy(k);    
+      }
+    }
+    System.out.println(B.toString());
+    
 
   }
 }
