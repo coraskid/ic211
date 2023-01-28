@@ -47,8 +47,8 @@ public class Box {
   }
 
   public Point mapIntoUnitSquare(Point p){
-    System.out.println(p.getx() + " " + p.gety());
-    System.out.println(this.toString());
+    //System.out.println(p.getx() + " " + p.gety());
+    //System.out.println(this.toString());
     if (p.getx() > this.xmax || p.getx() < this.xmin || p.gety() > this.ymax || p.gety() < this.ymin){
       return null;
     }
@@ -68,14 +68,18 @@ public class Box {
   public void add(Scanner in){
     Point p = Point.read(in);
     this.growBy(p);
-    System.out.println("this is box add");
+    //System.out.println("this is box add");
   }
 
   public void map(Scanner in){
     Point p = Point.read(in);
-    Point k = b.mapIntoUnitSquare(p);
+    Point k = this.mapIntoUnitSquare(p);
     if(k == null){
-
+      System.out.println("error");
+    }
+    else{
+      System.out.println(k.toString());
+    }
 
   }
 

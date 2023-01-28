@@ -17,7 +17,7 @@ public class Lab03{
 
   public static void main(String[] args){
     //Point l = new Point(3,4);
-    Point f = new Point(4,3);
+    //Point f = new Point(4,3);
     //Hi = new Box(f);
     //Hi.growBy(f);
     //if(K == null){
@@ -31,7 +31,7 @@ public class Lab03{
     Scanner in = new Scanner(System.in);
     String command = in.next();
 
-    boolean boxCreated = false;
+    //boolean boxCreated = false;
     //var B;
     //if (Lab03.B == null){
     //  System.out.println("PLEASE");
@@ -45,7 +45,7 @@ public class Lab03{
           //System.out.println("no")
           //B.growBy(p);
         //}
-        System.out.println("add");
+        //System.out.println("add");
         break;
       }
       else if(command.equals("box") || command.equals("map")){
@@ -56,27 +56,42 @@ public class Lab03{
         System.out.println("Error! Unknown command \"" + command + "\"!");
       }
 
-      System.out.println(command);
+      //System.out.println(command);
       command = in.next();
+    }
+    if(command.equals("done")){
+      return;
     }
     Point p = Point.read(in);
     Box B = new Box(p);
     //B.nextCmd(in);
-    System.out.println("OUt?");
-    System.out.println(B.toString());
+    //System.out.println("OUt?");
+    //System.out.println(B.toString());
 
     command = in.next();
-    System.out.println(command);
-    while(!command.equals("done!")){
+    //System.out.println(command);
+    while(!command.equals("done")){
       if(command.equals("add")){
         B.add(in);
         //Point k = Point.read(in);
         //B.growBy(k);   
+        //System.out.println(B.toString());
+      }
+      else if(command.equals("box")){
         System.out.println(B.toString());
+      }
+      else if(command.equals("map")){
+        //System.out.println("start");
+        B.map(in);
+        //System.out.println("end");
+        
+      }
+      else{
+        System.out.println("Error! Unknown command \"" + command + "\"!");
       }
       command = in.next();
     }
-    System.out.println(B.toString());
+    //System.out.println(B.toString());
     
 
   }
