@@ -26,7 +26,7 @@ public class Geyser {
    * if g blows, return number of days since last blow
    */
 
-  public int simDay(Random r){
+  private int simDay(Random r){
     int tmp = ++this.daysSinceLastBlow;
     double blowProb = 1 - Math.pow(this.baseProbFactor, tmp);
 
