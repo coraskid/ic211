@@ -20,7 +20,7 @@ public class Rotor{
   }
 
   public void clockwise(){
-    String temp = this.order;
+    char[] temp = this.order;
     temp[0] = this.order[this.order.length()-1];
     for(int i = 1; i < this.order.length(); i++){
       temp[i] = this.order[i-1];
