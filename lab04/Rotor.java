@@ -6,17 +6,23 @@ public class Rotor{
   private String order;
   private char top;
 
-  //public Rotor(String s){
-    //this.order = s;
-    //this.top = s[0];
-  //}
+  public Rotor(String s){
+    this.order = s;
+    this.top = s.charAt(0);
+  }
   public Rotor(String s, char t){
     this.order = s;
     this.top = t;
-    while(s.charAt(0) != t){
+    while(this.order.charAt(0) != t){
       this.clockwise();
     }
+  }
 
+  public String getO(){
+    return this.order;
+  }
+  public char getT(){
+    return this.top;
   }
   //charAt(int index);
   //indexOf(char c);
@@ -35,11 +41,24 @@ public class Rotor{
     arr[0] = temp;
     this.order = String.valueOf(arr);
   }
+  
+  public int index(char c){
+    int ind = this.order.indexOf(c);
+    return ind;
+  }
+
+  public char atIndex(int index){
+    char c = this.order.charAt(index);
+    return c;
+  }
 
   public static void main(String[] args){
     Rotor r = new Rotor("asdfghjkl", 'd');
-    r.clockwise();
+    System.out.println("hi");
+    //r.clockwise();
     System.out.println(r.order);
+    System.out.println(r.index('g'));
+    System.out.println(r.atIndex(4));
 
 
   }
