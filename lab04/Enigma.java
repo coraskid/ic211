@@ -31,16 +31,6 @@ public class Enigma{
     this.outer = new Rotor(roters[out-1], start.charAt(2));
   }
   /**
-   * Prints the current rotor arrangements
-   * Mainly used for debuging
-   */
-  private void getCur(){
-    System.out.println(this.inner.getO());
-    System.out.println(this.middle.getO());
-    System.out.println(this.outer.getO());
-    return; 
-  }
-  /**
    * Finds the corresponding char on another rotor given two rotors and a char
    * @param c the char that you have
    * @param from the rotor you are starting at
@@ -103,9 +93,7 @@ public class Enigma{
 
   public static void main(String[] args){
     Enigma t = new Enigma(1,2,3, "###");
-    t.getCur();
     System.out.println(t.decrypt("XXMMJ#UBHRWSHYSSTGWIGMMMAKTFSWZD#PU#CZIQADCDQY#NHN#SJVJTKZVVHOZBABLYMWBWWLNGAWWXEBWNXQQBQQRNMJGYXRYBKISBBFHGOO"));
-    t.getCur();
   }
 
 }
