@@ -1,16 +1,29 @@
 import java.util.*;
-
+/**
+ * The Box class creates a representation of a box around all points in the box,
+ * the ability to add points and therefor expand the box and map points within
+ * the box
+ * @author cora skidmore
+ */
 public class Box {
-  //private Point[] arr;
   private double xmin, xmax, ymin, ymax;
-
+  /**
+   * Constructor
+   * Will define both x and y's mins and maxes appropriatly
+   * @param a Initial point to define the box
+   */
   public Box(Point a){
     this.xmin = a.getx();
     this.xmax = a.getx();
     this.ymin = a.gety();
     this.ymax = a.gety();
   }
-
+  /**
+   * Constructor
+   * Will define both x and y's mins and maxes appropriatly
+   * @param a 1 of 2 initial points to define the box
+   * @param b 2 of 2 initial points to define the box
+   */
   public Box(Point a, Point b){
     if(a.getx() == b.getx()){
       this.xmin = a.getx();
@@ -34,7 +47,11 @@ public class Box {
       this.ymax = b.gety();
     }
   }
-
+  /**
+   * Adds a point to the box and adjusts both x and y mins and maxes
+   * appropriatly
+   * @param p Point added to the box
+   */
   public void growBy(Point p){
     if(p.getx() > this.xmax)
       this.xmax = p.getx();
@@ -45,24 +62,53 @@ public class Box {
     if(p.gety() < this.ymin)
       this.ymin = p.gety();
   }
-
+  /**
+   * Maps a point in the box and gives you the relivant ratios the point is
+   * in comparison to the box
+   * @param p point you want to map into the box
+   * @return A point where the x and y value are the ratio of the given point
+   * with respect to the box
+   * @return Will return null is point p is not with in the box
+   */
   public Point mapIntoUnitSquare(Point p){
-    System.out.println(p.getx() + " " + p.gety());
-    System.out.println(this.toString());
-    if (p.getx() > this.xmax || p.getx() < this.xmin || p.gety() > this.ymax || p.gety() < this.ymin){
+    if (p.getx() > this.xmax || p.getx() < this.xmin || 
+        p.gety() > this.ymax || p.gety() < this.ymin){
       return null;
     }
-
     double x = (p.getx() - this.xmin) / (this.xmax - this.xmin);
     double y = (p.gety() - this.ymin) / (this.ymax - this.ymin);
-
     Point l = new Point(x, y);
     return l;
   }
-
+  /**
+   * Represents the box in a string
+   * @return A string representation of the min and max values of the box
+   */
   public String toString(){
     return (this.xmin + " < x < " + this.xmax + ", " + this.ymin + " < y < " + this.ymax);
-
+  }
+  /**
+   * Adds a point to the instance Box based on input from a scanner
+   * @param in Scanner where two doubles will be read in
+   */
+  public void add(Scanner in){
+    Point p = Point.read(in);
+    this.growBy(p);
+  }
+  /**
+   * Maps a point to the instance box based on input from a scanner
+   * Will print 'error' if inputed point is not within box bounds
+   * @param in Scanner where two doubles will be read in
+   */
+  public void map(Scanner in){
+    Point p = Point.read(in);
+    Point k = this.mapIntoUnitSquare(p);
+    if(k == null){
+      System.out.println("error");
+    }
+    else{
+      System.out.println(k.toString());
+    }
   }
 
   public static void main(String[] args){
@@ -73,15 +119,9 @@ public class Box {
     a.growBy(q);
     System.out.println(a.toString());
     Point j = new Point(3, 18);
-    if (b.mapIntoUnitSquare(j) == null){ ///HOW TO DEAL WITH NULL
+    if (b.mapIntoUnitSquare(j) == null){ 
       System.out.println("error2");
     }
     Point k = b.mapIntoUnitSquare(j);
-    //if (k.getx() == null){
-      //System.out.print("error");
-    //}
-    //System.out.println(k.getx() + " " + k.gety());
-    //System.out.println(k.toString());
-    //System.out.println(Point.mapIntoUnitSquare(j).toString());
   }
 }
