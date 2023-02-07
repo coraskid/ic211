@@ -1,18 +1,24 @@
 import java.util.*;
+import java.io.*;
 
 public class Search{
 
 
-  private Tweet[] readfile(String path){
-    Scanner fin = new Scanner(path);
-    Tweet[] arr = new Tweet[33];
-    for(int i = 0; i < 33; i++){
-      String text = fin.next();
-      String user = fin.next();
-      String date = fin.next();
-      arr[i] = new Tweet(text, user, date);
+  private static Tweet[] readfile(String path){
+    Scanner fin = null;
+    try {
+      fin = new Scanner(new FileReader(path));
+    } catch(IOException e) {
+      e.printStackTrace(); System.exit(1);
     }
 
+    Tweet[] arr = new Tweet[33];
+    for(int i = 0; i < 33; i++){
+      String text = fin.nextLine();
+      String[] parts = text.split("\t");
+      arr[i] = new Tweet(parts[0], parts[1], parts[2]);
+    }
+    return arr;
   }
 
 
@@ -24,6 +30,10 @@ public class Search{
       return;
     }
     Tweet[] arr = readfile(args[0]);
+    System.out.println("Array size: " + arr.length);
+    for(int i = 0; i < 33; i++){
+      System.out.println(arr[i].toString());
+    }
 
     //System.out.println(args.length);
 
