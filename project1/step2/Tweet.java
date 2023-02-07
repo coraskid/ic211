@@ -30,18 +30,10 @@ public class Tweet {
     return (this.text + "\t[" + this.user + "]\t" + this.mon + "/" + this.day + "/" + this.year);  
   }
 
-  public boolean containsKeyword(String keyword){
-    return this.text.contains(keyword);
-  }
-
-
 
   public static void main(String[] args){
     Tweet test = new Tweet("hi", "this_is_me", "2013-08-14");
     System.out.println(test.toString());
-    System.out.println(test.containsKeyword("hi"));
-    System.out.println(test.containsKeyword("h"));
-    System.out.println(test.containsKeyword("hiello"));
 
   }
 }

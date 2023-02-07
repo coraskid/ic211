@@ -82,32 +82,14 @@ public class Queue{
 
   }
 
-  public Queue filterForKeyword(String keyword){
-    Queue Q = new Queue();
-    Node cp = this.head;
-    for(int i = 0; i < this.length(); i++){
-      if(cp.data.containsKeyword(keyword)){
-        Q.enqueue(cp.data);
-      }  
-      cp = cp.next;
-    }
-    return Q;
-  }
+
 
   public static void main(String[] args){
     Queue Q = new Queue();
     Tweet t = new Tweet("hi", "me", "2003-12-45");
-    Tweet t2 = new Tweet("nooooo", "me", "2003-12-45");
-    Tweet t3 = new Tweet("hi bob", "me", "2003-12-45");
-    
     Q.enqueue(t);
-    Q.enqueue(t2);
-    Q.enqueue(t3);
-    //System.out.println(Q.dequeue());
-    System.out.println(Q.empty());
-    Q.printall();
-    Q = Q.filterForKeyword("hi");
-    Q.printall();
+    System.out.println(Q.dequeue());
+    System.out.println(Q.empty());    
   }
 }
 
