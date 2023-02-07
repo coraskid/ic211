@@ -30,6 +30,11 @@ public class Tweet {
     return (this.text + "\t[" + this.user + "]\t" + this.mon + "/" + this.day + "/" + this.year);  
   }
 
+  /**
+   * Checks if a tweet contains a certain keyword
+   * @param keyword String you are looking for
+   * @return Will return true if it is in the tweet, otherwise, returns false
+   */
   public boolean containsKeyword(String keyword){
     return this.text.contains(keyword);
   }
