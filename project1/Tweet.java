@@ -36,7 +36,11 @@ public class Tweet {
    * @return Will return true if it is in the tweet, otherwise, returns false
    */
   public boolean containsKeyword(String keyword){
-    return this.text.contains(keyword);
+    boolean test = this.text.contains(keyword);
+    if(test){
+      System.out.println(this.user);
+    }
+    return test;
   }
 
 

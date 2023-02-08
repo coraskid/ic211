@@ -9,8 +9,8 @@ public class Queue{
    * This class actually establishes the linked list with data type Tweet
    */
   private class Node{
-    public Tweet data;
-    public Node next;
+    private Tweet data;
+    private Node next;
     public Node(Tweet d, Node n){
       data = d;
       next = n;
@@ -29,18 +29,8 @@ public class Queue{
       this.tail = this.head;
     }
     else {
-      //Node temp = this.head;
-      //int i = 0;
-      //while(temp.next != this.tail){
-      //  i ++;
-      //  temp = temp.next;
-      //}
       this.tail.next = new Node(s, null);
       this.tail = this.tail.next;
-      //this.tail = this.tail.next;
-      //Node temp = this.tail;
-      //Node N = new Node(s, this.tail);
-      //temp = N;
     }
   }
   /**
@@ -57,7 +47,7 @@ public class Queue{
    * @return boolean (true if Queue is empty, otherwise false)
    */
   public boolean empty(){
-    if(this.head == this.tail){
+    if(this.head == null){
       return true;
     }
     return false;
@@ -96,7 +86,7 @@ public class Queue{
   public Queue filterForKeyword(String keyword){
     Queue Q = new Queue();
     Node cp = this.head;
-    for(int i = 0; i < this.length(); i++){
+    while(cp != null){
       if(cp.data.containsKeyword(keyword)){
         Q.enqueue(cp.data);
       }  

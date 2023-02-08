@@ -15,24 +15,20 @@ public class Search{
    */
   private static Queue readfile(String path){
     Scanner fin = null;
-    System.out.println("please print");
     try {
       fin = new Scanner(new FileReader(path));
     } catch(IOException e) {
       e.printStackTrace(); System.exit(1);
     }
 
-    System.out.println("please print2");
     Queue Q = new Queue();
     int i = 0;
     while(fin.hasNextLine()){
       String text = fin.nextLine();
-      System.out.println(i);
       i++;
       String[] parts = text.split("\t");
       Q.enqueue(new Tweet(parts[0], parts[1], parts[2]));
     }
-    System.out.println("pleas9e print");
 
     return Q;
 
@@ -50,21 +46,15 @@ public class Search{
       return;
     }
     
-    System.out.println("please 3print");
     Queue Q = readfile(args[0]);
-    System.out.println("please2 print");
     System.out.println("Queue size: " + Q.length());
     Queue M = Q.copy();
-    System.out.println("please4 print");
-    //M.printall();
-    //Q.printall();
     Scanner sc = new Scanner(System.in);
     
     System.out.print("? ");
     String cmd = sc.next();
     while(!cmd.equals("!quit")){
       if(cmd.equals("!dump")){
-      System.out.println("please while print");
         M.printall();
       }
       else{
@@ -74,6 +64,8 @@ public class Search{
       System.out.print("? ");
       cmd = sc.next();
     }
+
+    System.out.println("Goodbye!");
 
   }
 }
