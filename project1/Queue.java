@@ -24,18 +24,21 @@ public class Queue{
    * @param s Tweet that should be added to the queue
    */
   public void enqueue(Tweet s){
-    Node N = new Node(s, this.tail);
     if (this.empty()){
-      this.head = N;
+      this.head = new Node(s, this.tail);
     }
     else {
-      Node temp = this.head;
-      int i = 0;
-      while(temp.next != this.tail){
-        i ++;
-        temp = temp.next;
-      }
-      temp.next = N;
+      //Node temp = this.head;
+      //int i = 0;
+      //while(temp.next != this.tail){
+      //  i ++;
+      //  temp = temp.next;
+      //}
+      this.tail.data = s;
+      this.tail = this.tail.next;
+      //Node temp = this.tail;
+      //Node N = new Node(s, this.tail);
+      //temp = N;
     }
   }
   /**
@@ -79,7 +82,13 @@ public class Queue{
       System.out.println(cp.data.toString());
       cp = cp.next;
     }
-
+  }
+  
+  public Queue copy(){
+    Queue Q = new Queue();
+    Q.head = this.head;
+    Q.tail = this.tail;
+    return Q;
   }
 
   public Queue filterForKeyword(String keyword){
