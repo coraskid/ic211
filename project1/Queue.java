@@ -25,7 +25,8 @@ public class Queue{
    */
   public void enqueue(Tweet s){
     if (this.empty()){
-      this.head = new Node(s, this.tail);
+      this.head = new Node(s, null);
+      this.tail = this.head;
     }
     else {
       //Node temp = this.head;
@@ -34,8 +35,9 @@ public class Queue{
       //  i ++;
       //  temp = temp.next;
       //}
-      this.tail.data = s;
+      this.tail.next = new Node(s, null);
       this.tail = this.tail.next;
+      //this.tail = this.tail.next;
       //Node temp = this.tail;
       //Node N = new Node(s, this.tail);
       //temp = N;

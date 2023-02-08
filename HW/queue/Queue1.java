@@ -22,8 +22,9 @@ public class Queue{
       this.head = N;
     }
     else {
-      this.tail.next = new Node(s, this.tail);
+      this.tail = new Node(s, this.tail);
       
+      //Node N = new Node(s, this.tail);
       //Node temp = this.head;
       //int i = 0;
       //while(temp.next != this.tail){
