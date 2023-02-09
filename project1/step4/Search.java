@@ -40,23 +40,6 @@ public class Tweet {
     return lower.contains(keyword.toLowerCase());
   }
 
-  /**
-   * Checks if a tweet is on a certain date
-   * @param date String representation of the date
-   * @return Will return true if the tweet is on that date, otherwise, returns
-   * false 
-   */
-  public boolean onDate(String date){
-    String[] dateArr = date.split("-");
-    int year = Integer.parseInt(dateArr[0]);
-    int mon = Integer.parseInt(dateArr[1]);
-    int day = Integer.parseInt(dateArr[2]);
-    if (this.year == year && this.mon == mon && this.day == day){
-      return true;
-    }
-    return false;
-  }
-
 
   public static void main(String[] args){
     Tweet test = new Tweet("hi", "this_is_me", "2013-08-14");
@@ -67,3 +50,4 @@ public class Tweet {
 
   }
 }
+

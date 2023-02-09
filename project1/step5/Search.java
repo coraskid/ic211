@@ -54,10 +54,7 @@ public class Search{
     System.out.print("? ");
     String cmd = sc.next();
     while(!cmd.equals("!quit")){
-      if(cmd.equals("!reset")){
-        M = Q.copy();
-      }
-      else if(cmd.equals("!dump")){
+      if(cmd.equals("!dump")){
         M.printall();
       }
       else if(cmd.charAt(0) == '-'){

@@ -118,26 +118,8 @@ public class Queue{
       }  
       cp = cp.next;
     }
-    return Q; 
-  }
-  /**
-   * Filters all of the tweets for a specific date in the current Queue instance
-   * and returns a new queue containing every tweet from that date
-   * @param date String representation of the date
-   * @return Queue with all tweets from that date
-   */
-  public Queue filterForDate(String date){
-    Queue Q = new Queue();
-    Node cp = this.head;
-    while(cp != null){
-      if(cp.data.onDate(date)){
-        Q.enqueue(cp.data);
-      }  
-      cp = cp.next;
-    }
-    return Q; 
-
-
+    return Q;
+ 
   }
 
   public static void main(String[] args){
@@ -156,4 +138,5 @@ public class Queue{
     Q.printall();
   }
 }
+
 
