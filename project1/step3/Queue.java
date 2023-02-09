@@ -90,7 +90,6 @@ public class Queue{
    * Filters for keyword in the current Queue instance and returns a new queue
    * with only tweets containing that new keyword
    * @param keyword a string with the set of letters you are looking for
-   * @return Queue will all tweets containing that keyword
    */
   public Queue filterForKeyword(String keyword){
     Queue Q = new Queue();
@@ -102,24 +101,6 @@ public class Queue{
       cp = cp.next;
     }
     return Q;
-  }
-  /**
-   * Filters out all tweets that contain a keyword in the current Queue instance
-   * and returns a new queue containing every tweet not containing that keyword
-   * @param keyword a string with the set of letters you want to filter out
-   * @return Queue with all tweets not containing that keyword
-   */
-  public Queue filterForNotKeyword(String keyword){
-    Queue Q = new Queue();
-    Node cp = this.head;
-    while(cp != null){
-      if(!cp.data.containsKeyword(keyword)){
-        Q.enqueue(cp.data);
-      }  
-      cp = cp.next;
-    }
-    return Q;
- 
   }
 
   public static void main(String[] args){

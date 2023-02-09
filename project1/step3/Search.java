@@ -57,9 +57,6 @@ public class Search{
       if(cmd.equals("!dump")){
         M.printall();
       }
-      else if(cmd.charAt(0) == '-'){
-        M = M.filterForNotKeyword(cmd.split("-")[1]);
-      }
       else{
         M = M.filterForKeyword(cmd);
       }
@@ -72,3 +69,4 @@ public class Search{
 
   }
 }
+
