@@ -30,40 +30,10 @@ public class Tweet {
     return (this.text + "\t[" + this.user + "]\t" + this.mon + "/" + this.day + "/" + this.year);  
   }
 
-  /**
-   * Checks if a tweet contains a certain keyword
-   * @param keyword String you are looking for
-   * @return Will return true if it is in the tweet, otherwise, returns false
-   */
-  public boolean containsKeyword(String keyword){
-    String lower = this.text.toLowerCase();
-    return lower.contains(keyword.toLowerCase());
-  }
-
-  /**
-   * Checks if a tweet is on a certain date
-   * @param date String representation of the date
-   * @return Will return true if the tweet is on that date, otherwise, returns
-   * false 
-   */
-  public boolean onDate(String date){
-    String[] dateArr = date.split("-");
-    int year = Integer.parseInt(dateArr[0]);
-    int mon = Integer.parseInt(dateArr[1]);
-    int day = Integer.parseInt(dateArr[2]);
-    if (this.year == year && this.mon == mon && this.day == day){
-      return true;
-    }
-    return false;
-  }
-
 
   public static void main(String[] args){
     Tweet test = new Tweet("hi", "this_is_me", "2013-08-14");
     System.out.println(test.toString());
-    System.out.println(test.containsKeyword("hi"));
-    System.out.println(test.containsKeyword("h"));
-    System.out.println(test.containsKeyword("hiello"));
 
   }
 }

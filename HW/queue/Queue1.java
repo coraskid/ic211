@@ -3,8 +3,8 @@ import java.util.*;
 public class Queue{
    
   private class Node{
-    private String data;
-    private Node next;
+    public String data;
+    public Node next;
     public Node(String d, Node n){
       data = d;
       next = n;
@@ -18,13 +18,13 @@ public class Queue{
    */
   public void enqueue(String s){
     if (this.empty()){
-      this.head = new Node(s, null);
-      this.tail = this.head;
+      Node N = new Node(s, this.tail);
+      this.head = N;
     }
     else {
-      this.tail.next = new Node(s, null);
-      this.tail = this.tail.next;
+      this.tail = new Node(s, this.tail);
       
+      //Node N = new Node(s, this.tail);
       //Node temp = this.head;
       //int i = 0;
       //while(temp.next != this.tail){
@@ -46,7 +46,7 @@ public class Queue{
    * Returns true if list is empty
    */
   public boolean empty(){
-    if(this.head == null){
+    if(this.head == this.tail){
       return true;
     }
     return false;

@@ -11,7 +11,7 @@ public class HW05 {
       Q.enqueue(s);
       s = sc.next();
     }
-
+    System.out.println(Q.dequeue());
     while( !Q.empty() ) {
       System.out.println(Q.dequeue());
     }
