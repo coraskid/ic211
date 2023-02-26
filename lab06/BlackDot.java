@@ -1,14 +1,28 @@
 import java.util.*;
-
-
+/**
+ * This class represents a Black dot and has all properties of a moving dot
+ * @author Cora Skidmore
+ */
 public class BlackDot extends MovingDot{
   private int stepCount;
-
+  
+  /**
+   * Constructor
+   * Calls constructor in Moving dot class to set row, column and direction
+   * It also sets the stepCount (specific to blackdots) to 0
+   * @param r int representation of row value
+   * @param c int representation of column value
+   */
   public BlackDot(int r, int c){
     super(r, c);
     stepCount = 0;
   }
 
+  /**
+   * This method determins the dots movements
+   * The Black dot writes out NAVY, followed by some random movements before
+   * starting over again
+   */
   public void step(){
     int tS = 85; //totalStep
     if(stepCount % tS == 0)
@@ -97,6 +111,11 @@ public class BlackDot extends MovingDot{
     stepCount++;
   }
 
+  /**
+   * This method creates a string version of what the plotter needs 
+   * It overrides the Dot class' toString method by adding the color (blue)
+   * @return A string representation of the dots location and color
+   */
   public String toString(){
     String toS = super.toString() + " k";
     return toS;

@@ -1,18 +1,29 @@
 import java.util.*;
 
-
+/**
+ * This class deal with moving dots
+ * It takes the same properties of the dot class and gives each dot a direction
+ * that allows it to move around the screen
+ * @author Cora Skidmore
+ */
 public class MovingDot extends Dot{
   private int d;
   private static Random rand = new Random();
 
-  /*
+  /**
    * Constructor
+   * Sets row, column and direction of the dot
+   * @param r int representation of row value
+   * @param c int representation of column value
    */
   public MovingDot(int r, int c){
     super(r, c);
     this.d = 0;
   }
 
+  /**
+   * This method takes one step in the current direction
+   */
   public void step(){
     if(this.d == 0)
       this.incRow();
@@ -40,9 +51,11 @@ public class MovingDot extends Dot{
     }
   }
   
-    /**
-     * NEEDED METHOD BECAUSE BLUE AND RED DOTS NEED TO CHANGE DIRECTION
-     */
+  /**
+   * NEEDED PROTECTED METHOD BECAUSE DOTS NEED TO CHANGE DIRECTION
+   * This method allows you to change to a specific method
+   * @param newD this int dictates what direction to change to
+   */
   protected void changeDir(int newD){
     if(newD > 7 || newD < 0){
       //prints error and keeps same dir
@@ -51,9 +64,11 @@ public class MovingDot extends Dot{
     }
     this.d = newD;
   }
-    /**
-     * This method changes direction but only left right or straight
-     */
+  /**
+   * NEEDED PROTECTED METHOD BECAUSE DOTS NEED TO CHANGE DIRECTION
+   * This method changes the direction randomly, but only changes 90 degrees or
+   * continues in the same direction.
+   */
   protected void changeDir(){
     //Random rand = new Random();
     int k = rand.nextInt(3);
@@ -66,10 +81,6 @@ public class MovingDot extends Dot{
     }
   }
 
-  protected void getD(){
-    System.out.println(this.d);
-  }
-
   public static void main(String[] args){
     MovingDot blue = new MovingDot(0,0);
     System.out.println(blue.toString() + " " + blue.d);
@@ -78,11 +89,5 @@ public class MovingDot extends Dot{
     blue.changeDir();
     blue.step();
     System.out.println(blue.toString() + " " + blue.d);
-
-
   }
-
-
-
-
 }
