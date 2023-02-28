@@ -1,3 +1,4 @@
+import java.util.*;
 public class Truck extends Vehicle {
   private int numWheels;
   private boolean canfly;
@@ -11,7 +12,7 @@ public class Truck extends Vehicle {
   }
 
   public static Truck read(Scanner sc){
-    return new Truck("truck", sc.next(), sc.next())
+    return new Truck("truck", sc.next(), sc.nextInt());
   }
 
   public String toString() {

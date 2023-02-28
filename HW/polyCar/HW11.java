@@ -20,7 +20,7 @@ public class HW11 {
     int i = 0;
     while( sc.hasNext() ){
       String type = sc.next();
-      vehicles[i++] = type.equals("truck") ? Truck.read(sc) : type.equals("car") ? Car.read(sc) : type.equals("plane") ? Plane.read(sc) : Motorcycle(sc);
+      vehicles[i++] = type.equals("truck") ? Truck.read(sc) : type.equals("car") ? Car.read(sc) : type.equals("plane") ? Plane.read(sc) : Motorcycle.read(sc);
       //vehicles[i++] = new Vehicle(sc.next(), sc.next(), sc.nextInt());
     }
     return vehicles;

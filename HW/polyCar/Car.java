@@ -1,7 +1,8 @@
+import java.util.*;
 public class Car extends Vehicle {
   private int numWheels;
   private boolean canfly;
-  private String noise = "vroom";
+  private String noise = "vrooom";
 
 
   public Car(String type, String model, int mpg){
@@ -11,7 +12,7 @@ public class Car extends Vehicle {
   }
 
   public static Car read(Scanner sc){
-    return new Car("car", sc.next(), sc.next())
+    return new Car("car", sc.next(), sc.nextInt());
   }
 
   public String toString() {
