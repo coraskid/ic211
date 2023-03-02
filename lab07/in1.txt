@@ -1,0 +1,10 @@
+every 14 days start 1/6/2017 income Paycheck
+every 1 months start 1/15/2017 expense Mortgage Due
+every 1 months start 1/6/2017 expense Cable Due
+every 3 months start 3/21/2017 expense Water/Sewer Due
+every 3 months start 3/26/2017 income Stock Dividend
+every 1 months start 1/23/2017 expense Credit Card Due
+every 1 months start 1/11/2017 expense Car Payment Due
+every 1 months start 1/2/2017 expense Car Insurance Due
+every 1 months start 1/17/2017 expense Cell Phone Due
+every 12 months start 4/15/2017 expense Taxes Due
