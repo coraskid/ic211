@@ -15,6 +15,7 @@ public class Lab06{
         L.add(new RedDot(45,50));   // add a RedDot to the list
         L.add(new BlueDot(55,50));  // add a BlueDot to the list
         L.add(new GreenDot(65,50));  // add a BlueDot to the list
+        L.add(new BlackDot(75,50));  // add a BlackDot to the list
 
       }
 
