@@ -44,6 +44,8 @@ public class Lab07 {
       System.out.println(arr[i]);
     }
 
+    for(int 
+
   }
 
 
