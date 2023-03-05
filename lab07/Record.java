@@ -29,20 +29,20 @@ public class Record {
     this.name = n;
   }
 
-  public Record makeRecord(String[] line){
+  public static Record makeRecord(String[] line){
     String[] startString = (line[4]).split("/");
     int mon = Integer.parseInt(startString[0]);
     int day = Integer.parseInt(startString[1]);
     int year = Integer.parseInt(startString[2]);
     MyDate s = new MyDate(year, mon, day);
-    this.start = s;
-    this.incrim = new Inc(Integer.parseInt(line[1]), line[2]);
+    int a = Integer.parseInt(line[1]);
+    //Inc in = new Inc(Integer.parseInt(line[1]), line[2]);
     String n = line[6];
     for(int i = 7; i < line.length; i++){
       n = n.concat(" ");
       n = n.concat(line[i]);
     }
-    this.name = n;
+    return new Record(s, a, line[2], n);
 
         
     //System.out.println(n);
