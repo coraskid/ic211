@@ -7,9 +7,18 @@ public class Record {
       this.type = t.equals("days") ? 'd' : t.equals("months") ? 'm' : 'y';
       this.amount = a;
     }
+    private MyDate nextDate(MyDate start){
+      MyDate copyStart = start;
+      if (this.type == 'd')
+        copyStart.incDay(this.amount);
+      else if (this.type == 'm')
+        copyStart.incMonth(this.amount);
+      else
+        copyStart.incYear(this.amount);
+      return copyStart;
+    }
   }
 
-  private static MyDate first = null;
   private MyDate start;
   private Inc incrim;
   private String name;
@@ -20,7 +29,7 @@ public class Record {
     this.name = n;
   }
 
-  public Record(String[] line){
+  public Record makeRecord(String[] line){
     String[] startString = (line[4]).split("/");
     int mon = Integer.parseInt(startString[0]);
     int day = Integer.parseInt(startString[1]);
@@ -35,23 +44,36 @@ public class Record {
     }
     this.name = n;
 
-    if(first == null || s.daysUntil(first) > 0)
-      first = s;
-    
-    System.out.println(n);
-    System.out.println(first);
+        
+    //System.out.println(n);
+    //System.out.println(first);
 
   }
 
   public String toString(){
     return this.name;
   }
+/*
+  public MyDate getDate(){
+    return this.start;
+  }*/
 
+  public boolean today(MyDate d){
+    MyDate i = this.start;
+    while (i.daysUntil(d) > 0){
+      //System.out.println("Test: " + i + " " + i.daysUntil(d));
+      i = this.incrim.nextDate(i);
+    }
+    /*
+    for(MyDate i = this.start; i.daysUntil(d) > 0; i.incDay(1)){
+      System.out.println(i);
+      MyDate test = (this.incrim).nextDate(i);
+      System.out.println("Test:" + test);
+    }*/
+    if (i.daysUntil(d) == 0)
 
-  //public boolean today(MyDate d){
-
-
-
-
-  //}
+      return true;
+    else
+      return false;
+  }
 }
