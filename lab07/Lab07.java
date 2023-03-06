@@ -5,10 +5,10 @@ public class Lab07 {
 
   private static Record read(String[] line){
     Record n;
-    if(line[5].equals("prob"))
-      n = makeRecordP(line);
-    else
-      n = makeRecord(line);
+    //if(line[5].equals("prob"))
+      //n = makeRecordP(line);
+    //else
+      n = Record.makeRecord(line);
     return n;
   }
 
