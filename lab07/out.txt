@@ -1,15 +1,3 @@
-1/16/2017
-1/16/2017
-1/16/2017
-1/16/2017
-1/16/2017
-1/16/2017
-1/16/2017
-1/16/2017
-1/16/2017
-1/16/2017
-1/16/2017
-1/16/2017
 1/2/2017: Car Insurance Due, Dinner Out
 1/5/2017: Gas
 1/6/2017: Paycheck, Cable Due
@@ -35,3 +23,385 @@
 1/31/2017: Groceries, Breakfast Out
 2/2/2017: Car Insurance Due, Groceries
 2/3/2017: Paycheck
+2/6/2017: Cable Due
+2/11/2017: Car Payment Due
+2/12/2017: Groceries
+2/13/2017: Dinner Out
+2/14/2017: Breakfast Out, Gas
+2/15/2017: Mortgage Due
+2/16/2017: Lazy Boy Layaway Payment Due
+2/17/2017: Paycheck, Cell Phone Due
+2/18/2017: Gas
+2/19/2017: Groceries
+2/20/2017: Dinner Out
+2/21/2017: Dinner Out, Breakfast Out
+2/22/2017: Gas
+2/23/2017: Credit Card Due, Groceries
+2/26/2017: Dinner Out
+2/28/2017: Breakfast Out
+3/2/2017: Car Insurance Due
+3/3/2017: Paycheck
+3/4/2017: Groceries
+3/6/2017: Cable Due, Gas
+3/10/2017: Groceries, Dinner Out
+3/11/2017: Car Payment Due, Groceries
+3/14/2017: Groceries, Breakfast Out
+3/15/2017: Mortgage Due, Groceries
+3/16/2017: Lazy Boy Layaway Payment Due
+3/17/2017: Paycheck, Cell Phone Due
+3/18/2017: Gas
+3/21/2017: Water/Sewer Due, Breakfast Out
+3/22/2017: Gas
+3/23/2017: Credit Card Due
+3/26/2017: Stock Dividend
+3/27/2017: Dinner Out
+3/28/2017: Breakfast Out
+3/31/2017: Paycheck
+4/2/2017: Car Insurance Due
+4/3/2017: Dinner Out, Gas
+4/6/2017: Cable Due, Car Repair
+4/11/2017: Car Payment Due
+4/14/2017: Paycheck, Dinner Out
+4/15/2017: Mortgage Due, Taxes Due
+4/16/2017: Lazy Boy Layaway Payment Due
+4/17/2017: Cell Phone Due
+4/18/2017: Dinner Out
+4/19/2017: Dinner Out
+4/21/2017: Dinner Out
+4/23/2017: Credit Card Due, Gas
+4/27/2017: Gas
+4/28/2017: Paycheck
+5/1/2017: Gas
+5/2/2017: Car Insurance Due, Breakfast Out
+5/5/2017: Gas
+5/6/2017: Cable Due, Groceries, Dinner Out
+5/9/2017: Breakfast Out
+5/11/2017: Car Payment Due
+5/12/2017: Paycheck
+5/15/2017: Mortgage Due
+5/16/2017: Groceries, Lazy Boy Layaway Payment Due
+5/17/2017: Cell Phone Due, Groceries, Dinner Out
+5/21/2017: Gas
+5/23/2017: Credit Card Due, Breakfast Out
+5/26/2017: Paycheck, Groceries
+5/29/2017: Gas
+6/2/2017: Car Insurance Due, Dinner Out
+6/3/2017: Car Repair
+6/6/2017: Cable Due, Gas
+6/7/2017: Groceries
+6/9/2017: Paycheck, Groceries
+6/10/2017: Gas
+6/11/2017: Car Payment Due, Dinner Out
+6/13/2017: Dinner Out, Breakfast Out
+6/14/2017: Groceries, Gas
+6/15/2017: Mortgage Due, Groceries
+6/16/2017: Lazy Boy Layaway Payment Due
+6/17/2017: Cell Phone Due
+6/18/2017: Dinner Out, Gas
+6/20/2017: Groceries, Breakfast Out
+6/21/2017: Water/Sewer Due
+6/22/2017: Groceries, Gas
+6/23/2017: Paycheck, Credit Card Due
+6/25/2017: Groceries
+6/26/2017: Stock Dividend, Gas
+6/27/2017: Breakfast Out
+6/29/2017: Groceries
+7/1/2017: Dinner Out
+7/2/2017: Car Insurance Due
+7/4/2017: Gas
+7/5/2017: Groceries
+7/6/2017: Cable Due
+7/7/2017: Paycheck
+7/8/2017: Gas
+7/10/2017: Groceries
+7/11/2017: Car Payment Due, Groceries, Breakfast Out
+7/12/2017: Groceries, Gas
+7/13/2017: Dinner Out
+7/14/2017: Dinner Out
+7/15/2017: Mortgage Due
+7/16/2017: Lazy Boy Layaway Payment Due
+7/17/2017: Cell Phone Due
+7/18/2017: Groceries, Breakfast Out
+7/20/2017: Dinner Out, Gas
+7/21/2017: Paycheck
+7/23/2017: Credit Card Due, Dinner Out
+7/25/2017: Breakfast Out
+7/28/2017: Gas
+7/31/2017: Dinner Out
+8/1/2017: Dinner Out
+8/2/2017: Car Insurance Due, Dinner Out
+8/3/2017: Groceries
+8/4/2017: Paycheck
+8/5/2017: Dinner Out, Gas
+8/6/2017: Cable Due, Dinner Out
+8/8/2017: Dinner Out
+8/9/2017: Gas
+8/11/2017: Car Payment Due
+8/13/2017: Gas
+8/15/2017: Mortgage Due
+8/16/2017: Lazy Boy Layaway Payment Due
+8/17/2017: Cell Phone Due, Gas
+8/18/2017: Paycheck
+8/22/2017: Groceries, Breakfast Out
+8/23/2017: Credit Card Due
+8/25/2017: Groceries, Gas
+8/28/2017: Dinner Out
+8/29/2017: Gas, Car Repair
+9/1/2017: Paycheck
+9/2/2017: Car Insurance Due
+9/4/2017: Groceries
+9/5/2017: Breakfast Out
+9/6/2017: Cable Due, Groceries, Car Repair
+9/9/2017: Dinner Out
+9/10/2017: Gas
+9/11/2017: Car Payment Due
+9/12/2017: Breakfast Out
+9/13/2017: Dinner Out
+9/14/2017: Gas
+9/15/2017: Paycheck, Mortgage Due
+9/16/2017: Dinner Out, Lazy Boy Layaway Payment Due
+9/17/2017: Cell Phone Due
+9/18/2017: Groceries
+9/20/2017: Groceries
+9/21/2017: Water/Sewer Due
+9/22/2017: Gas
+9/23/2017: Credit Card Due
+9/25/2017: Groceries, Dinner Out
+9/26/2017: Stock Dividend, Gas
+9/27/2017: Groceries
+9/28/2017: Groceries, Dinner Out
+9/29/2017: Paycheck, Groceries, Dinner Out
+9/30/2017: Groceries
+10/2/2017: Car Insurance Due
+10/3/2017: Groceries, Breakfast Out
+10/4/2017: Dinner Out, Gas
+10/6/2017: Cable Due
+10/7/2017: Groceries
+10/8/2017: Groceries, Gas
+10/10/2017: Breakfast Out
+10/11/2017: Car Payment Due
+10/12/2017: Gas
+10/13/2017: Paycheck
+10/15/2017: Mortgage Due, Groceries
+10/16/2017: Gas, Lazy Boy Layaway Payment Due
+10/17/2017: Cell Phone Due
+10/18/2017: Groceries
+10/20/2017: Dinner Out
+10/21/2017: Dinner Out
+10/23/2017: Credit Card Due
+10/24/2017: Gas
+10/25/2017: Dinner Out
+10/26/2017: Groceries
+10/27/2017: Paycheck
+10/30/2017: Groceries
+10/31/2017: Breakfast Out
+11/2/2017: Car Insurance Due
+11/5/2017: Gas
+11/6/2017: Cable Due, Groceries
+11/8/2017: Groceries
+11/9/2017: Gas
+11/10/2017: Paycheck
+11/11/2017: Car Payment Due, Groceries
+11/14/2017: Groceries
+11/15/2017: Mortgage Due
+11/16/2017: Lazy Boy Layaway Payment Due
+11/17/2017: Cell Phone Due, Gas
+11/18/2017: Dinner Out
+11/21/2017: Gas
+11/23/2017: Credit Card Due, Groceries, Dinner Out
+11/24/2017: Paycheck
+11/25/2017: Dinner Out, Gas
+11/26/2017: Dinner Out
+11/27/2017: Dinner Out
+11/29/2017: Groceries
+11/30/2017: Dinner Out
+12/2/2017: Car Insurance Due, Groceries
+12/3/2017: Gas
+12/6/2017: Cable Due
+12/8/2017: Paycheck
+12/11/2017: Car Payment Due, Dinner Out, Gas
+12/12/2017: Breakfast Out
+12/15/2017: Mortgage Due, Groceries, Gas
+12/16/2017: Lazy Boy Layaway Payment Due
+12/17/2017: Cell Phone Due
+12/19/2017: Gas
+12/21/2017: Water/Sewer Due
+12/22/2017: Paycheck
+12/23/2017: Credit Card Due
+12/26/2017: Stock Dividend
+12/28/2017: Groceries
+12/31/2017: Groceries, Gas
+1/2/2018: Car Insurance Due, Groceries
+1/4/2018: Gas
+1/5/2018: Paycheck, Dinner Out
+1/6/2018: Cable Due
+1/8/2018: Gas
+1/9/2018: Breakfast Out
+1/11/2018: Car Payment Due
+1/12/2018: Dinner Out
+1/15/2018: Mortgage Due, Groceries
+1/16/2018: Breakfast Out
+1/17/2018: Cell Phone Due
+1/19/2018: Paycheck
+1/20/2018: Gas
+1/21/2018: Groceries
+1/23/2018: Credit Card Due, Dinner Out
+1/26/2018: Dinner Out
+1/28/2018: Gas
+1/29/2018: Dinner Out
+1/30/2018: Breakfast Out
+2/2/2018: Paycheck, Car Insurance Due
+2/5/2018: Groceries, Dinner Out, Gas
+2/6/2018: Cable Due, Dinner Out
+2/9/2018: Groceries, Gas, Car Repair
+2/11/2018: Car Payment Due
+2/12/2018: Groceries, Dinner Out
+2/15/2018: Mortgage Due, Dinner Out
+2/16/2018: Paycheck
+2/17/2018: Cell Phone Due
+2/19/2018: Groceries
+2/20/2018: Groceries, Breakfast Out
+2/21/2018: Gas
+2/23/2018: Credit Card Due, Dinner Out
+2/25/2018: Dinner Out
+2/26/2018: Dinner Out
+2/27/2018: Breakfast Out
+3/2/2018: Paycheck, Car Insurance Due
+3/5/2018: Gas
+3/6/2018: Cable Due, Groceries, Breakfast Out
+3/11/2018: Car Payment Due
+3/13/2018: Groceries
+3/15/2018: Mortgage Due, Dinner Out
+3/16/2018: Paycheck
+3/17/2018: Cell Phone Due, Dinner Out, Gas
+3/21/2018: Water/Sewer Due
+3/22/2018: Groceries
+3/23/2018: Credit Card Due
+3/25/2018: Gas
+3/26/2018: Stock Dividend
+3/27/2018: Breakfast Out
+3/30/2018: Paycheck
+4/2/2018: Car Insurance Due, Dinner Out, Gas
+4/4/2018: Dinner Out
+4/5/2018: Groceries
+4/6/2018: Cable Due, Gas
+4/10/2018: Dinner Out
+4/11/2018: Car Payment Due
+4/13/2018: Paycheck, Dinner Out, Car Repair
+4/14/2018: Gas
+4/15/2018: Mortgage Due, Taxes Due
+4/16/2018: Dinner Out
+4/17/2018: Cell Phone Due
+4/21/2018: Groceries, Dinner Out
+4/23/2018: Credit Card Due
+4/24/2018: Groceries, Breakfast Out
+4/26/2018: Gas
+4/27/2018: Paycheck
+4/28/2018: Dinner Out
+5/2/2018: Car Insurance Due
+5/3/2018: Groceries
+5/4/2018: Groceries, Gas
+5/5/2018: Groceries
+5/6/2018: Cable Due, Dinner Out
+5/11/2018: Paycheck, Car Payment Due
+5/12/2018: Groceries
+5/14/2018: Groceries
+5/15/2018: Mortgage Due, Dinner Out
+5/16/2018: Gas
+5/17/2018: Cell Phone Due
+5/20/2018: Dinner Out
+5/23/2018: Credit Card Due
+5/25/2018: Paycheck
+5/26/2018: Dinner Out
+5/29/2018: Breakfast Out
+5/31/2018: Dinner Out
+6/1/2018: Gas
+6/2/2018: Car Insurance Due, Dinner Out
+6/3/2018: Dinner Out
+6/4/2018: Dinner Out
+6/5/2018: Gas
+6/6/2018: Cable Due
+6/8/2018: Paycheck
+6/9/2018: Groceries
+6/11/2018: Car Payment Due
+6/13/2018: Gas
+6/14/2018: Groceries
+6/15/2018: Mortgage Due
+6/16/2018: Dinner Out
+6/17/2018: Cell Phone Due, Gas
+6/20/2018: Groceries
+6/21/2018: Water/Sewer Due
+6/22/2018: Paycheck, Dinner Out, Car Repair
+6/23/2018: Credit Card Due, Dinner Out
+6/24/2018: Groceries
+6/25/2018: Gas
+6/26/2018: Stock Dividend, Breakfast Out
+6/29/2018: Gas
+7/1/2018: Groceries
+7/2/2018: Car Insurance Due
+7/3/2018: Breakfast Out
+7/6/2018: Paycheck, Cable Due
+7/7/2018: Dinner Out, Gas
+7/10/2018: Groceries
+7/11/2018: Car Payment Due
+7/14/2018: Groceries
+7/15/2018: Mortgage Due, Gas
+7/17/2018: Cell Phone Due, Dinner Out
+7/19/2018: Gas
+7/20/2018: Paycheck, Groceries
+7/21/2018: Groceries
+7/22/2018: Dinner Out
+7/23/2018: Credit Card Due, Dinner Out, Gas
+7/26/2018: Groceries
+7/27/2018: Gas
+7/30/2018: Groceries
+7/31/2018: Groceries
+8/2/2018: Car Insurance Due
+8/3/2018: Paycheck, Groceries
+8/4/2018: Gas
+8/5/2018: Groceries
+8/6/2018: Cable Due, Groceries
+8/8/2018: Groceries, Gas
+8/11/2018: Car Payment Due
+8/12/2018: Groceries, Gas
+8/14/2018: Groceries
+8/15/2018: Mortgage Due
+8/16/2018: Groceries, Dinner Out
+8/17/2018: Paycheck, Cell Phone Due
+8/19/2018: Groceries, Dinner Out
+8/20/2018: Gas
+8/22/2018: Dinner Out
+8/23/2018: Credit Card Due, Dinner Out
+8/25/2018: Groceries
+8/26/2018: Groceries
+8/27/2018: Groceries
+8/28/2018: Breakfast Out
+8/31/2018: Paycheck
+9/1/2018: Dinner Out
+9/2/2018: Car Insurance Due
+9/3/2018: Dinner Out
+9/4/2018: Groceries
+9/6/2018: Cable Due
+9/9/2018: Dinner Out
+9/11/2018: Car Payment Due, Dinner Out
+9/13/2018: Gas
+9/14/2018: Paycheck, Dinner Out
+9/15/2018: Mortgage Due, Dinner Out
+9/17/2018: Cell Phone Due, Dinner Out
+9/18/2018: Dinner Out, Breakfast Out
+9/21/2018: Water/Sewer Due, Groceries, Gas
+9/23/2018: Credit Card Due, Dinner Out
+9/25/2018: Breakfast Out, Gas
+9/26/2018: Stock Dividend
+9/28/2018: Paycheck
+10/2/2018: Car Insurance Due, Breakfast Out
+10/5/2018: Dinner Out
+10/6/2018: Cable Due
+10/7/2018: Dinner Out, Gas
+10/9/2018: Breakfast Out
+10/11/2018: Car Payment Due
+10/12/2018: Paycheck, Groceries
+10/13/2018: Dinner Out
+10/15/2018: Mortgage Due, Gas
+10/17/2018: Cell Phone Due, Dinner Out
+10/22/2018: Dinner Out

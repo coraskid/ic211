@@ -5,11 +5,15 @@ import java.io.*;
  * and turn it into a day by day financial event output
  * @author Cora Skidmore
  */
-
-
 public class Lab07 {
   
-
+  /**
+   * Read method
+   * Calls the correct class dependant on the words in the line
+   * @param line String[] containing the info from the line of the txt file
+   * @param r Random object passed to RandomP calls
+   * @return Record made from line
+   */
   private static Record read(String[] line, Random r){
     Record n;
     if(line[3].equals("for"))
@@ -28,7 +32,7 @@ public class Lab07 {
       System.out.println("usage: java Lab07 <infilename> <numDays>");
       return;
     }
-    //code from 211 website
+    //code from 211 website (rand and Scanner)
     Random rand;
     if( args.length == 3 )
       rand = new Random(Long.parseLong(args[2]));
