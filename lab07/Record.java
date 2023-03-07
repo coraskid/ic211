@@ -1,21 +1,21 @@
 import java.util.*;
 public class Record {
-  private class Inc{
+  public class Inc{
     private char type;
     private int amount;
-    private Inc(int a, String t){
+    public Inc(int a, String t){
       this.type = t.equals("days") ? 'd' : t.equals("months") ? 'm' : 'y';
       this.amount = a;
     }
-    private MyDate nextDate(MyDate start){
-      MyDate copyStart = start;
+    public MyDate nextDate(MyDate base){
+      MyDate copyBase = base;
       if (this.type == 'd')
-        copyStart.incDay(this.amount);
+        copyBase.incDay(this.amount);
       else if (this.type == 'm')
-        copyStart.incMonth(this.amount);
+        copyBase.incMonth(this.amount);
       else
-        copyStart.incYear(this.amount);
-      return copyStart;
+        copyBase.incYear(this.amount);
+      return copyBase;
     }
   }
 
@@ -53,13 +53,15 @@ public class Record {
   public String toString(){
     return this.name;
   }
-/*
+
   public MyDate getDate(){
     return this.start;
-  }*/
+  }
 
   public boolean today(MyDate d){
+    //System.out.println(this.toString() + "In today");
     MyDate i = this.start;
+    //System.out.println("IN original today: " + i + " day: " + d);
     while (i.daysUntil(d) > 0){
       //System.out.println("Test: " + i + " " + i.daysUntil(d));
       i = this.incrim.nextDate(i);

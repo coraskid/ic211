@@ -1,0 +1,36 @@
+1/16/2017
+2/16/2017
+3/16/2017
+4/16/2017
+5/16/2017
+6/16/2017
+7/16/2017
+8/16/2017
+9/16/2017
+10/16/2017
+11/16/2017
+12/16/2017
+1/2/2017: Car Insurance Due, Dinner Out
+1/5/2017: Gas
+1/6/2017: Paycheck, Cable Due
+1/8/2017: Dinner Out
+1/9/2017: Gas
+1/10/2017: Groceries, Dinner Out
+1/11/2017: Car Payment Due
+1/12/2017: Groceries, Dinner Out
+1/13/2017: Dinner Out
+1/14/2017: Dinner Out
+1/15/2017: Mortgage Due
+1/17/2017: Cell Phone Due
+1/19/2017: Groceries
+1/20/2017: Paycheck
+1/21/2017: Dinner Out, Gas
+1/22/2017: Dinner Out
+1/23/2017: Credit Card Due
+1/25/2017: Groceries
+1/27/2017: Groceries
+1/29/2017: Gas
+1/30/2017: Dinner Out
+1/31/2017: Groceries, Breakfast Out
+2/2/2017: Car Insurance Due, Groceries
+2/3/2017: Paycheck

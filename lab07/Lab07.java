@@ -3,11 +3,13 @@ import java.io.*;
 public class Lab07 {
 
 
-  private static Record read(String[] line){
+  private static Record read(String[] line, Random r){
     Record n;
-    //if(line[5].equals("prob"))
-      //n = makeRecordP(line);
-    //else
+    if(line[3].equals("for"))
+      n = RecordEnd.makeRecordEnd(line);
+    else if(line[5].equals("prob"))
+      n = RecordP.makeRecordP(line, r);
+    else
       n = Record.makeRecord(line);
     return n;
   }
@@ -15,20 +17,17 @@ public class Lab07 {
 
 
   public static void main(String[] args){
-    int len = 0;
-    MyDate begin = MyDate.makeDate(2017, 1, 1);
     Random rand;
     if( args.length == 3 )
       rand = new Random(Long.parseLong(args[2]));
     else
       rand = new Random(System.currentTimeMillis());
-    
+    int len = 0;
+    MyDate begin = MyDate.makeDate(2017, 1, 1); 
     Scanner sc = null;
     try{
       sc = new Scanner(new File(args[0]));
       len = FileLineCounter.countLines(args[0]);
-      // put the call to file line counter 
-      // in this scope as well
     }catch(Exception e){
       e.printStackTrace();
       System.exit(1);
@@ -38,7 +37,7 @@ public class Lab07 {
     for(int i = 0; i < len; i++){
       String nextl = sc.nextLine(); 
       String[] nextlA = nextl.split(" ");
-      arr[i] = read(nextlA);
+      arr[i] = read(nextlA, rand);
     }
     /*
     for(int i = 0; i < len; i++){
@@ -52,6 +51,7 @@ public class Lab07 {
       Record[] today = new Record[len];
       int ti = 0;
       for(int j = 0; j < len; j++, ti++){
+        //System.out.println(arr[j].toString() + arr[j].getDate());
         if(arr[j].today(curDay))
           today[ti] = arr[j];
         else
