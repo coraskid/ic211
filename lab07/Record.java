@@ -8,7 +8,7 @@ public class Record {
       this.amount = a;
     }
     public MyDate nextDate(MyDate base){
-      MyDate copyBase = base;
+      MyDate copyBase = base.clone();
       if (this.type == 'd')
         copyBase.incDay(this.amount);
       else if (this.type == 'm')

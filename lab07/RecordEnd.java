@@ -6,9 +6,8 @@ public class RecordEnd extends Record{
   public RecordEnd(MyDate s, int i, String t, String n, int e){
     super(s, i, t, n);
     Inc in = new Inc(i, t);
-    MyDate cp = s;
+    MyDate cp = s.clone();
     for(int j = 0; j < e; j++){
-      System.out.println(this.getDate());
       cp = in.nextDate(cp);
     }
     this.end = cp;
