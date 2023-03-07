@@ -1,7 +1,14 @@
 import java.util.*;
 import java.io.*;
-public class Lab07 {
+/**
+ * Lab07 impliments Record class and child classes to process a finance txt file
+ * and turn it into a day by day financial event output
+ * @author Cora Skidmore
+ */
 
+
+public class Lab07 {
+  
 
   private static Record read(String[] line, Random r){
     Record n;
@@ -17,6 +24,11 @@ public class Lab07 {
 
 
   public static void main(String[] args){
+    if(args.length < 2){
+      System.out.println("usage: java Lab07 <infilename> <numDays>");
+      return;
+    }
+    //code from 211 website
     Random rand;
     if( args.length == 3 )
       rand = new Random(Long.parseLong(args[2]));
@@ -32,26 +44,22 @@ public class Lab07 {
       e.printStackTrace();
       System.exit(1);
     }
-    
+    //Read in arr with all of the records from the file
     Record[] arr = new Record[len];
     for(int i = 0; i < len; i++){
       String nextl = sc.nextLine(); 
       String[] nextlA = nextl.split(" ");
       arr[i] = read(nextlA, rand);
     }
-    /*
-    for(int i = 0; i < len; i++){
-      System.out.println(arr[i]);
-    }*/
-
-    //arr[0].today(arr[4].getDate());
-    MyDate curDay = begin;
+    
+    //Run through all of the days and check if any happen today and print those
+    //events
+    MyDate curDay = begin.clone();
     int totalDays = Integer.parseInt(args[1]);
     for(int i = 0; i < totalDays; i++){
       Record[] today = new Record[len];
       int ti = 0;
       for(int j = 0; j < len; j++, ti++){
-        //System.out.println(arr[j].toString() + arr[j].getDate());
         if(arr[j].today(curDay))
           today[ti] = arr[j];
         else
