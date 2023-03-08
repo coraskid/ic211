@@ -11,12 +11,15 @@ public class HW09 {
     try{
       x = sc.nextInt();
       k = sc.nextInt();
+      if(k < 0){
+        throw new Exception();
+      }
       m = sc.nextInt();
       r = MyMath.modexp(x, k, m);
     } catch(Exception e){
       if( verbose )
         System.out.println("Error in HW09! invalid input.");
-      return;
+      System.exit(1);
     } 
     if (verbose) {
       System.out.print(x + "^" + k + " % " + m + " = ");
