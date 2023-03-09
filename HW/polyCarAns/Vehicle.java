@@ -5,7 +5,6 @@ public class Vehicle {
   //private boolean canfly;
 
   public Vehicle(String type, String model, int mpg) {
-    this.type = type;
     this.model = model;
     this.mpg = mpg;
     //this.canfly = type.equals("plane");
@@ -17,7 +16,7 @@ public class Vehicle {
     }
 
   //public boolean doesItFly() { return canfly; }
-  /*
+  
   public String noise() {
     /*
     if( type.equals("truck") )
@@ -29,10 +28,12 @@ public class Vehicle {
     else if( type.equals("plane") )
       return "woooosh";
     else
+
+    */
       return "hmmmm";
     
   }
-  */
+    
   public String toString() {
     return model; 
     //return model + " " + noise() + " does" + (doesItFly() ? "" : " not") + " fly with " + numWheels + " wheels.";
