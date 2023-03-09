@@ -22,14 +22,8 @@ public class Queue {
   public String dequeue() throws QueueException{
     
     Node t = head;
-    try{
-      if(head == null)
-        throw new QueueException("dequeue empty queue");
-    } catch(QueueException qe){
-      qe.printStackTrace();
-      System.out.println( qe.getCause());
-      System.exit(2);
-
+    if(head == null){
+      throw new QueueException("dequeue empty queue");
     }
     head = head.next;
     if( head == null )
@@ -42,9 +36,13 @@ public class Queue {
     return head == null;
   }
 
-  public String[] toArray() {
+  public String[] toArray() throws QueueException {
     // Assumes at least one node exists.
     // (a dumb way to do it, but don't change this).
+    //
+    if( head == null){
+      throw new QueueException("toArray past end of queue");
+    }
     Node t = head;
     int n = 1;
     while( t.next != null ) {

@@ -1,4 +1,4 @@
-public class QueueException extends Exception{
+public class QueueException extends RuntimeException{
 
   public QueueException(String msg){
     super(msg);
