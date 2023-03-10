@@ -1,6 +1,13 @@
+/**
+ * Queue Class has all standard queue stuff
+ * @author 211 website + a few additions from cora skidmore
+ */
 public class Queue {
   private Node head = null, tail = null;
-
+  
+  /**
+   * Node Class, just the standard node setup
+   */
   private class Node {
     public String data;
     public Node   next;
@@ -9,7 +16,10 @@ public class Queue {
       next = n;
     }
   }
-
+  /**
+   * enqueue method adds a String to the queue
+   * @param s String added to the queue
+   */
   public void enqueue(String s) {
     if( head == null ) {
       head = tail = new Node(s, null);
@@ -19,6 +29,11 @@ public class Queue {
     }
   }
 
+  /**
+   * dequeue method removes one thing from the queue, will throw an exception if
+   * there is nothing else to remove from the queue
+   * @return The removed data member
+   */
   public String dequeue() throws QueueException{
     
     Node t = head;
@@ -32,10 +47,19 @@ public class Queue {
     return t.data;
   }
 
+  /**
+   * Checks if the current queue is empty or not
+   * @return true if nothing in queue, otherwise false
+   */
   public boolean empty() {
     return head == null;
   }
-
+  
+  /**
+   * toArray method takes a queue and returns an array with the same data in the
+   * queue
+   * @return String[] with data members from the queue
+   */
   public String[] toArray() throws QueueException {
     // Assumes at least one node exists.
     // (a dumb way to do it, but don't change this).
