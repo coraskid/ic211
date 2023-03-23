@@ -11,6 +11,8 @@ public class ArrList<T> implements Iterable<T>{
    * Constructor: makes an array of 10 objects of types T
    */
   public ArrList(){
+    //Syntax aid from DelftStack online tutorial resource
+    //was getting a generic Array creation error
     this.arr = (T[]) new Object[10];
     this.length = 0;
   }
