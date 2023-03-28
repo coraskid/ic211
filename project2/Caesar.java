@@ -16,7 +16,7 @@ public class Caesar implements Encryptor {
   }
   
   public String encrypt(String plain) throws InvalidInputException { 
-    System.out.println("in encrypt: " + plain);
+    //System.out.println("in encrypt: " + plain);
     char[] cipher = new char[plain.length()];
     char[] plainC = plain.toCharArray();
     test(plain, "message");
@@ -26,7 +26,7 @@ public class Caesar implements Encryptor {
       int temp = (shift + (int)plainC[i] - 84) %81;
       cipher[i] = (char) (temp + 42);
     }
-    System.out.println(new String(cipher));
+    //System.out.println(new String(cipher));
     return new String(cipher); 
 
   }
