@@ -1,3 +1,4 @@
+import java.util.*;
 public class Hash {
   private String initVec = "GO_NAVY_2018^mid";
   public Encryptor E; 
@@ -14,6 +15,24 @@ public class Hash {
     //System.out.println(test[1]);
 
     //return hashName.split("+")[1];
+
+  }
+
+  private void setEncryptor(){
+    ArrayList<Encryptor> En = new ArrayList<Encryptor>();
+    En.add(new Clear());
+    En.add(new Caesar());
+    En.add(new Vigenere());
+    String encalg = this.getEncalgName();
+    int i = -1;
+    try {
+      while( !En.get(++i).getAlgName().equals(encalg) );
+    } catch(IndexOutOfBoundsException e) {
+      throw new NoSuchElementException("Unknown algorithm '" + encalg + "'.");
+    }
+    
+    this.E = En.get(i);
+
 
   }
   public char[] xxtend(char[] s){
@@ -37,6 +56,7 @@ public class Hash {
   public String hash(char[] pswd){
     //Encryptor E = new Caesar();
     //System.out.println(xxtend(pswd));
+    this.setEncryptor();
     E.init((pswd));
 
     if(E.getAlgName().equals("clear"))
