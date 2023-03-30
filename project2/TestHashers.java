@@ -14,7 +14,7 @@ public class TestHashers {
     System.out.print("password : ");
     char[] password = System.console().readPassword();
     H.setName(hashEncalg);
-    String encalg = H.getEncalgName();
+    String encalg = H.getEncalgName(); //DONT THINK I NEED THIS LINE
     /*int i = -1;
     try {
       while( !E.get(++i).getAlgName().equals(encalg) );

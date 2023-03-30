@@ -18,7 +18,7 @@ public class Hash {
 
   }
 
-  private void setEncryptor(){
+  private void setEncryptor() throws NoSuchElementException{
     ArrayList<Encryptor> En = new ArrayList<Encryptor>();
     En.add(new Clear());
     En.add(new Caesar());
