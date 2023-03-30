@@ -11,6 +11,8 @@ public class ArrList<T> implements Iterable<T>{
    * Constructor: makes an array of 10 objects of types T
    */
   public ArrList(){
+    //Syntax aid from stack overflow example that also had a generic array
+    //creation error
     this.arr = (T[]) new Object[10];
     this.length = 0;
   }
@@ -182,6 +184,7 @@ public class ArrList<T> implements Iterable<T>{
       System.out.print("yayyy");
     } else { System.out.print("booo"); }
 
+    System.out.println(t2.remove(-1));
     if(t2.remove("p")){
       System.out.println("shit");
     } else { System.out.print("fuck yea"); }
