@@ -2,20 +2,12 @@ import java.util.*;
 import java.io.*;
 
 public class Vault {
- /* 
+  
   private class UserInfo {
     private String user;
     private String encalg;
     private String hash;
     private Hash hashObj;
-    
-    public UserInfo(String u, String e, char[] p){
-      user = u;
-      hashObj = new Hash();
-      hashObj.setName(e);
-      encalg = hashObj.getEncalgName();
-      hash = hashObj.hash(p);
-    }
     public UserInfo(String u, String e, String h){
       user = u;
       hash = h;
@@ -23,11 +15,12 @@ public class Vault {
       hashObj.setName(e);
       encalg = hashObj.getEncalgName();
     }
-    
-    public static UserInfo addUserInfo(String u, String e, char[] p){
-      //UserInfo nui = new UserInfo(u, e);
-      //nui.hash = nui.hashObj.hash(p);
-      return new UserInfo(u, e, p);
+    public UserInfo(String u, String e, char[] p){
+      user = u;
+      hashObj = new Hash();
+      hashObj.setName(e);
+      encalg = hashObj.getEncalgName();
+      hash = hashObj.hash(p);
     }
     public boolean userEquals(String u){
       return this.user.equals(u);
@@ -45,7 +38,7 @@ public class Vault {
       return encalg;
     }
   }
-  */
+  
   private ArrayList<UserInfo> data = new ArrayList<UserInfo>();
 
   private void readData(String filen){
@@ -105,28 +98,13 @@ public class Vault {
     */
   }
 
-  public void addUser(String filen, String u, char[] p){
+  public static void addUser(String filen, String u, char[] p){
     System.out.print("Hash algorithm: ");
     String hashAlg = System.console().readLine();
-    for(UserInfo i : this.data){
-      if(i.userEquals(u)){
-        System.out.println("Error! Username '" + u + "' already in use.");
-        System.exit(1);
-      }
-    }
-
-
-
-    UserInfo N = null;
     try {
-      N = UserInfo.addUserInfo(u, hashAlg, p);
+      UserInfo N = new UserInfo(u, hashAlg, p);
     } catch (InvalidInputException iie) {
-      System.out.println("Error! " + iie.getMessage() + "." );//GET CHAR
-      //System.out.println(iie.getMessage());
-      //iie.printStackTrace();
-      System.exit(1);
-    } catch (NoSuchElementException nsee) {
-      System.out.println(nsee.getMessage());
+      System.out.println("Error! " + iie.message());
       System.exit(1);
     }
     PrintWriter pw = null;
@@ -134,9 +112,6 @@ public class Vault {
       pw = new PrintWriter(new BufferedWriter(new FileWriter(filen, true)));
     } catch (FileNotFoundException fnfe) {
       fnfe.printStackTrace();
-    } catch (IOException ioe) {
-      System.out.print("not sure what to do here?");
-      System.exit(1);
     }
     pw.print(N.toString());
 
@@ -147,7 +122,7 @@ public class Vault {
 
   public static void main(String[] args) {
     //no command line arguement or invalid tac option
-    if(args.length == 0 || (args.length == 2 && !args[0].equals("-au"))){
+    if(args.length == 0 || (args.length == 2 && !args[0].equals("-au")){
       System.out.println("usage: java Vault [-au] <filename>");
       System.exit(1);
     }
@@ -157,18 +132,22 @@ public class Vault {
     System.out.print("password: ");
     char[] pswd = System.console().readPassword();
 
-    Vault V = new Vault();
+
     if(args.length == 2){
-      V.readData(args[1]);
       addUser(args[1], usern, pswd);
       System.exit(1);
     }
 
+    Vault V = new Vault();
 
     V.readData(args[0]);
     Scanner in = new Scanner(System.in);
     
 
+    System.out.print("username: ");
+    String usern = System.console().readLine();
+    System.out.print("password: ");
+    char[] pswd = System.console().readPassword();
     
     V.verify(pswd, usern, in);
     do{

@@ -2,7 +2,7 @@ public class Vigenere implements Encryptor {
   private int[] k;
   public String getAlgName() { return "vigenere"; }
   public void   init(char[] key) {
-    test(new String(key), "key");
+    test(new String(key), "password");
     k = new int[key.length];
     for(int i = 0; i < key.length; i++)
       k[i] = (int) key[i];

@@ -3,7 +3,7 @@ public class Caesar implements Encryptor {
   public String getAlgName() { return "caesar"; }
   public void   init(char[] key) {
     int sc = 0;
-    test(new String(key), "key");
+    test(new String(key), "password");
     
     for(int i = 0; i < key.length; i++){
       //if((int)key[i] < 42 || (int)key[i] > 122)

@@ -28,7 +28,7 @@ public class Hash {
     try {
       while( !En.get(++i).getAlgName().equals(encalg) );
     } catch(IndexOutOfBoundsException e) {
-      throw new NoSuchElementException("Unknown algorithm '" + encalg + "'.");
+      throw new NoSuchElementException("Error! Hash algorithm '" + encalg + "' not supported.");
     }
     
     this.E = En.get(i);
