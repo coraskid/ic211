@@ -3,9 +3,6 @@ public interface Encryptor {
   public void   init(char[] key);
   public String encrypt(String plain);
   public String decrypt(String cipher);
-  /**
-   * 
-   */
   public default void test(String test, String type) throws InvalidInputException {
     char[] t = test.toCharArray();
     for(int i = 0; i < t.length; i++){

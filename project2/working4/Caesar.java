@@ -1,45 +1,38 @@
-/**
- * 
- */
 public class Caesar implements Encryptor {
   private int shift;
   public String getAlgName() { return "caesar"; }
-  /**
-   *
-   */
   public void   init(char[] key) {
     int sc = 0;
-    //Error check for chars outside of 42-122 and throw error if so
     test(new String(key), "password");
-    //calculate shift value 
+    
     for(int i = 0; i < key.length; i++){
+      //if((int)key[i] < 42 || (int)key[i] > 122)
+        //throw new InvalidInputException("Invalid character in password: " + key[i]);
       sc += (int)key[i] - 42;
     }
     sc += 18;
     sc = sc%81;
     this.shift = 42 + sc;
   }
-  /**
-   *
-   */
+  
   public String encrypt(String plain) throws InvalidInputException { 
+    //System.out.println("in encrypt: " + plain);
     char[] cipher = new char[plain.length()];
     char[] plainC = plain.toCharArray();
-    test(plain, "message"); //test message for invalid characters
-    //shift every character in the plaintext by calculated shift value
+    test(plain, "message");
     for(int i = 0; i < plainC.length; i++){
+      //if((int)plainC[i] < 42 || (int)plainC[i] > 122)
+        //throw new InvalidInputException("Invalid character in message: " + plainC[i]);
       int temp = (shift + (int)plainC[i] - 84) %81;
       cipher[i] = (char) (temp + 42);
     }
+    //System.out.println(new String(cipher));
     return new String(cipher); 
+
   }
-  /**
-   * 
-   */
   public String decrypt(String cipher){
     char[] cipherC = cipher.toCharArray();
     char[] plain = new char[cipher.length()];
-    //reverse the shift on each character of the ciphertext
     for(int i = 0; i < cipherC.length; i++){
       int temp = (((int)cipherC[i] - 42) + (81 - (shift - 42))) %81;
       plain[i] = (char) (temp + 42);

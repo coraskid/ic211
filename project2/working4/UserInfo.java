@@ -24,6 +24,8 @@ public class UserInfo {
   }
     
   public static UserInfo addUserInfo(String u, String e, char[] p) throws NoSuchElementException{
+      //UserInfo nui = new UserInfo(u, e);
+      //nui.hash = nui.hashObj.hash(p);
     UserInfo i = null;
     try {
       i = new UserInfo(u, e, p);
