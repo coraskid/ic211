@@ -1,5 +1,8 @@
 import java.util.*;
-
+/**
+ * This class runs the tests for all the encryptors
+ * @author 211 profs
+ */
 public class TestEncryptors {
   public static void main(String[] args) throws Throwable {
     // Create ArrayList of all supported encryptors

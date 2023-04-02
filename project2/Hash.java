@@ -1,11 +1,21 @@
 import java.util.*;
+/**
+ * This class creates hashes
+ * @author Cora Skidmore
+ */
 public class Hash {
   private String initVec = "GO_NAVY_2018^mid";
   public Encryptor E; 
   public String hashName;
+  /**
+   * Sets the hashName
+   * @param name hash name
+   */
   public void setName(String name) { hashName = name; }
   /**
-   * Get the name for the Encryptor 
+   * get the name for the Encryptor 
+   * Able to take shift+name and get name
+   * @return encryptor name
    */
   public String getEncalgName() {
     if (hashName.equals("clear"))
@@ -15,7 +25,10 @@ public class Hash {
       return hashName;
     return hashName.substring(6);
   }
-
+  /**
+   * sets encryptor
+   * uses the encryptor name and sets the proper encryptor
+   */
   private void setEncryptor() throws NoSuchElementException{
     //Set all encryptor options
     ArrayList<Encryptor> En = new ArrayList<Encryptor>();
@@ -31,6 +44,12 @@ public class Hash {
     }
     this.E = En.get(i);
   }
+  /**
+   * this method extends a char array to add x's on the end to make it a 16 char
+   * array
+   * @param s original string in char array form
+   * @return string + x's in char array form
+   */
   public char[] xxtend(char[] s){
     char[] finalS = new char[16];
     for(int i = 0; i < 16; i++){
@@ -41,7 +60,12 @@ public class Hash {
     }
     return finalS;
   }
-
+  /**
+   * Shifts a char array by some ammount
+   * @param str array to be shifted
+   * @param shift how much to shift by
+   * @return shifted array
+   */
   public char[] shift(char[] str, int shift){
     char[] newStr = new char[str.length];
     for(int i = 0; i < str.length; i++){
@@ -49,6 +73,11 @@ public class Hash {
     }
     return newStr;
   }
+  /**
+   * creates a hash of an inputed password
+   * @param pswd password
+   * @return hash of the password
+   */
   public String hash(char[] pswd){
     //set up the encryptor 
     this.setEncryptor();
@@ -65,5 +94,4 @@ public class Hash {
     }
     return new String(x); 
   }
-
 }

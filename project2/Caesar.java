@@ -1,11 +1,17 @@
 /**
- * 
+ * This class outlines the caesar encryption class
+ * @author Cora Skidmore
  */
 public class Caesar implements Encryptor {
-  private int shift;
+  private int shift; //amount to shift by, based off of password
+  /**
+   * returns algorithm name
+   * @return algorithm name
+   */
   public String getAlgName() { return "caesar"; }
   /**
-   *
+   * sets shift amount, based on password
+   * @param key char[] representation of the password
    */
   public void   init(char[] key) {
     int sc = 0;
@@ -20,7 +26,9 @@ public class Caesar implements Encryptor {
     this.shift = 42 + sc;
   }
   /**
-   *
+   * encrypts a string
+   * @param plain text that you want to encrypt
+   * @return encrypted text
    */
   public String encrypt(String plain) throws InvalidInputException { 
     char[] cipher = new char[plain.length()];
@@ -34,9 +42,12 @@ public class Caesar implements Encryptor {
     return new String(cipher); 
   }
   /**
-   * 
+   * decrypts a string
+   * @param cipher text you want to decrypt
+   * @return decrypted text
    */
-  public String decrypt(String cipher){
+  public String decrypt(String cipher) throws InvalidInputException{
+    test(cipher, "cipher");
     char[] cipherC = cipher.toCharArray();
     char[] plain = new char[cipher.length()];
     //reverse the shift on each character of the ciphertext
@@ -44,6 +55,7 @@ public class Caesar implements Encryptor {
       int temp = (((int)cipherC[i] - 42) + (81 - (shift - 42))) %81;
       plain[i] = (char) (temp + 42);
     }
+    test(new String(plain), "plain");
     return new String(plain); 
   }
 }

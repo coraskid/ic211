@@ -4,7 +4,11 @@ import java.io.*;
 public class Vault {
 
   private ArrayList<UserInfo> data = new ArrayList<UserInfo>();
-
+  private ArrayList<DataInfo> dataS = new ArrayList<DataInfo>();
+  /**
+   * Read data from a file into data (for users) and dataS (for data)
+   * @param filen file name
+   */
   private void readData(String filen){
     //set up scanner with filen as filename
     Scanner sc = null;
@@ -19,15 +23,29 @@ public class Vault {
     while(sc.hasNextLine()){
       String[] line = sc.nextLine().split(" ");
       //could do a try except with seperate func if needed
-      if(line.length != 4 || !line[0].equals("user")){
+      if(line.length != 4 || !(line[0].equals("user") || line[0].equals("data"))){
         System.out.println("Error! File '" + filen + "' improperly formatted.");
         System.exit(1);
       }
-      UserInfo cur = new UserInfo(line[1], line[2], line[3]);
-      this.data.add(cur);
+      //read in a user and add it to data
+      if(line[0].equals("user")){
+        UserInfo cur = new UserInfo(line[1], line[2], line[3]);
+        this.data.add(cur);
+      }
+      //read in a data and add it to dataS
+      if(line[0].equals("data")){
+        DataInfo cur = new DataInfo(line[1], line[2], line[3]);
+        this.dataS.add(cur);
+      }
     }
   }
-
+  /**
+   * verify a user, will print out access denied and quit the program or print
+   * out access granted and continue
+   * @param pswd password
+   * @param usern username
+   * @param in Scanner for system.in
+   */
   public void verify(char[] pswd, String usern, Scanner in) {
     //Find the correct userInfo object in data 
     int i = -1;
@@ -37,7 +55,6 @@ public class Vault {
       System.out.println("Access denied!");
       System.exit(1);
     }
-    
     //create a new hash Object for the user to calculated their inputted
     //password
     String newHash = null;
@@ -50,29 +67,30 @@ public class Vault {
       System.out.println("Access denied!");
       System.exit(1);
     }
-    
     //checks if computed hash and stored hash are equal
     if(!this.data.get(i).hashEquals(newHash)){
       System.out.println("Access denied!");
       System.exit(1);
     }
-
     System.out.println("Access granted!");
   }
-
+  /**
+   * This method adds a user to the file based on user input to the terminal
+   * @param filen filename
+   * @param u username
+   * @param p password
+   */
   public void addUser(String filen, String u, char[] p){
     //ask and get hash algorithm
     System.out.print("Hash algorithm: ");
     String hashAlg = System.console().readLine();
-    
     //check if username is already in use
     for(UserInfo i : this.data){
       if(i.userEquals(u)){
         System.out.println("Error! Username '" + u + "' already in use.");
         System.exit(1);
       }
-    }
-    
+    } 
     //create the UserInfo in order to automatically create the hash and all info
     //needed to write to the file
     UserInfo N = null;
@@ -85,7 +103,6 @@ public class Vault {
       System.out.println(nsee.getMessage());
       System.exit(1);
     }
-
     //Print the gathered UserInfo to the file
     PrintWriter pw = null;
     try {
@@ -130,8 +147,53 @@ public class Vault {
     //Authentication option
     Scanner in = new Scanner(System.in);
     V.verify(pswd, usern, in);
-    do{
+    
+    ArrayList<DataInfo> userData = new ArrayList<DataInfo>();
+    for(DataInfo i : V.dataS){
+      if(i.getUser().equals(usern)){
+        i.initP(pswd);
+        userData.add(i);
+      }
+    }
+    System.out.print("> ");
+    String cmd = in.next();
+    while(!cmd.equals("quit")){
+      //LABELS cmd 
+      if(cmd.equals("labels")){
+        for(DataInfo i : userData){
+          try{
+            System.out.println(i.getLabel());
+          } catch (Exception e) {
+            System.out.println("Error! Corrupted entry '" + i.getCipher() + "' in vault file.");
+          }
+        }
+      } 
+      //GET cmd
+      else if(cmd.equals("get")){
+        String l = in.next();
+        for(DataInfo i : userData){
+          if(i.getLabel().equals(l)){
+            try{
+              System.out.println(i.getPlain(pswd));
+            } catch (Exception e) {
+              System.out.println("Error! Corrupted entry '" + i.getCipher() + "' in vault file.");
+            }
+          }
+        }
+      }
+      /*
+      //ADD cmd
+      else if(cmd.equals("add")){
+         
+
+
+      }*/
+      //UNKNOWN cmd
+      else {
+        System.out.println("Unknown command '" + cmd + "'.");
+      }
       System.out.print("> ");
-    } while(!in.next().equals("quit"));
+      cmd = in.next();
+    }
   }
 }

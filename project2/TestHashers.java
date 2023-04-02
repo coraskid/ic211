@@ -1,5 +1,8 @@
 import java.util.*;
-
+/**
+ * This class runs basic hash operations
+ * @author Cora Skidmore
+ */
 public class TestHashers {
   public static void main(String[] args) throws Throwable {
     Hash H = new Hash();
