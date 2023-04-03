@@ -20,6 +20,7 @@ public class Vault {
     }
     
     //read each line of file and add it to this instances data ArrayList
+    int count = 0;
     while(sc.hasNextLine()){
       String[] line = sc.nextLine().split(" ");
       //could do a try except with seperate func if needed
@@ -29,14 +30,15 @@ public class Vault {
       }
       //read in a user and add it to data
       if(line[0].equals("user")){
-        UserInfo cur = new UserInfo(line[1], line[2], line[3]);
+        UserInfo cur = new UserInfo(line[1], line[2], line[3], count);
         this.data.add(cur);
       }
       //read in a data and add it to dataS
       if(line[0].equals("data")){
-        DataInfo cur = new DataInfo(line[1], line[2], line[3]);
+        DataInfo cur = new DataInfo(line[1], line[2], line[3], count);
         this.dataS.add(cur);
       }
+      count++;
     }
   }
   /**
@@ -116,30 +118,6 @@ public class Vault {
     pw.print(N.toString());
     if (pw != null) pw.close();
   }
-  /*
-  public void addData(Scanner in, String usern, String filen, ArrayList<DataInfo> userData){
-    String encalc = in.next();
-    String label = in.next();
-    String text = in.next();
-    
-    int i = -1;
-    boolean repeat = true;
-    try{
-      while( !E.get(++i).getLabel().equals(label));
-    } catch(IndexOutOfBoundsException e) {
-      repeat = false;
-    }
-    
-    int index;
-    if(repeat){
-      index = V.DataS.indexOf(userData.get(i));
-      V.DataS.get(index).
-
-
-
-
-  }
-*/
 
   public static void main(String[] args) {
     //no command line arguement or invalid tac option
@@ -150,12 +128,11 @@ public class Vault {
 
     //create Vault and read in data
     Vault V = new Vault();
-    String filen;
     if(args.length == 2)
-      filen = (args[1]);
+      V.readData(args[1]);
     else
-      filen = (args[0]);
-    V.readData(filen);
+      V.readData(args[0]);
+
     //collect username and password
     System.out.print("username: ");
     String usern = System.console().readLine();
@@ -209,10 +186,7 @@ public class Vault {
       /*
       //ADD cmd
       else if(cmd.equals("add")){
-        //String encalg = in.next();
-        //String label = in.next();
-        //String text = in.next();
-        V.addData(in, usern, filen, userData);
+         
 
 
       }*/
