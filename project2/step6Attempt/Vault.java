@@ -5,6 +5,7 @@ public class Vault {
 
   private ArrayList<UserInfo> data = new ArrayList<UserInfo>();
   private ArrayList<DataInfo> dataS = new ArrayList<DataInfo>();
+  private int totalData;
   /**
    * Read data from a file into data (for users) and dataS (for data)
    * @param filen file name
@@ -40,6 +41,7 @@ public class Vault {
       }
       count++;
     }
+    totalData = count;
   }
   /**
    * verify a user, will print out access denied and quit the program or print
@@ -119,6 +121,74 @@ public class Vault {
     if (pw != null) pw.close();
   }
 
+
+  public void addData(Scanner in, String usern, String filen, ArrayList<DataInfo> userData, char[] p){
+    String encalg = in.next();
+    String label = in.next();
+    String text = in.next();
+    try {
+      Encryptor testLabel = new Clear();
+      testLabel.test(label, "label");
+    } catch(InvalidInputException iie) {
+      System.out.println("Error! Label '" + label + "' is invalid.");
+      return;
+    }
+    if(label.contains("_")){
+      System.out.println("Error! Label '" + label + "' is invalid.");
+      return;
+    }
+    int useri = -1;
+    boolean repeat = true;
+    try {
+      while (!userData.get(++useri).getLabel().equals(label));
+    } catch(IndexOutOfBoundsException e ) {
+      repeat = false;
+    }
+
+    if (repeat) {
+      int index = -1;
+      try { 
+        while (!this.dataS.get(++index).equals(userData.get(useri)));
+      } catch(IndexOutOfBoundsException e) {
+        repeat = false; 
+      } //should never happen
+      dataS.get(index).setCiphertext(text);
+    } else {
+      dataS.add(new DataInfo(usern, encalg, label, text, totalData, p));
+      totalData++;
+    }
+
+
+    for(DataInfo i : dataS){
+      System.out.println(i);
+    }
+    
+    PrintWriter pw = null;
+    try {
+      pw = new PrintWriter(new File(filen));
+    } catch (FileNotFoundException fnfe) {
+      fnfe.printStackTrace();
+    }
+    
+    for(int i = 0; i < totalData; i++){
+      int ui = -1;
+      int di = -1;
+      try {
+        while (!(this.data.get(++ui).getOrder() == i));
+        pw.println(data.get(ui));
+      } catch (IndexOutOfBoundsException eoobe) {}
+      
+      while(!(this.dataS.get(++di).getOrder() == i));
+      pw.println(dataS.get(di));
+    }
+
+  
+    if (pw != null) pw.close();
+
+    
+
+  }
+
   public static void main(String[] args) {
     //no command line arguement or invalid tac option
     if(args.length == 0 || (args.length == 2 && !args[0].equals("-au"))){
@@ -128,11 +198,12 @@ public class Vault {
 
     //create Vault and read in data
     Vault V = new Vault();
+    String filen;
     if(args.length == 2)
-      V.readData(args[1]);
+      filen = (args[1]);
     else
-      V.readData(args[0]);
-
+      filen = (args[0]);
+    V.readData(filen);
     //collect username and password
     System.out.print("username: ");
     String usern = System.console().readLine();
@@ -183,13 +254,13 @@ public class Vault {
           }
         }
       }
-      /*
+      
       //ADD cmd
       else if(cmd.equals("add")){
-         
+        V.addData(in, usern, filen, userData, pswd);  
 
 
-      }*/
+      }
       //UNKNOWN cmd
       else {
         System.out.println("Unknown command '" + cmd + "'.");

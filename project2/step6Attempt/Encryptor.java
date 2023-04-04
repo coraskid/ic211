@@ -19,7 +19,7 @@ public interface Encryptor {
     for(int i = 0; i < t.length; i++){
       int ti = (int)t[i];
       if(ti < 42 || ti > 122){
-        throw new InvalidInputException("Invalid symbol '" + t[i] + "' in " + type);
+        throw new InvalidInputException("Invalid symbol '" + t[i] + "' in " + type, t[i]);
       }
     }
   }

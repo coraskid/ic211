@@ -17,8 +17,8 @@ public class DataInfo {
    * @param e encalg
    * @param c ciphertext
    */
-  public DataInfo(String u, String e, String c, int i) {
-    order = i;
+  public DataInfo(String u, String e, String c, int o) {
+    order = o;
     user = u;
     encalg = e;
     ciphertext = c;
@@ -34,6 +34,29 @@ public class DataInfo {
       throw new NoSuchElementException("Unknown algorithm '" + encalg +"'.");
     }
     E = EOp.get(i);
+  }
+
+  public DataInfo(String u, String e, String l, String t, int o, char[] pswd){
+    this.user = u;
+    this.encalg = e;
+    this.label = l;
+    this.order = o;
+    ArrayList<Encryptor> EOp = new ArrayList<Encryptor>();
+    EOp.add(new Clear());
+    EOp.add(new Caesar());
+    EOp.add(new Vigenere());
+    int i = -1;
+    try {
+      while ( !EOp.get(++i).getAlgName().equals(encalg) ) ;
+    } catch(IndexOutOfBoundsException ioobe) {
+      throw new NoSuchElementException("Unknown algorithm '" + encalg +"'.");
+    }
+    E = EOp.get(i);
+    this.initP(pswd);
+    String fullText = l + "_" + t;
+    ciphertext = E.encrypt(fullText);
+    
+
   }
   /**
    * Initialize password to the encyptor
@@ -110,12 +133,20 @@ public class DataInfo {
     try {
       cipher = E.encrypt(plain);
     } catch (InvalidInputException iie) {
-
+      //SET CHARACTERS
+      throw new InvalidInputException("Error! Invalid characer '" + iie.getCharError() + "' in text.");
+    }
+    this.ciphertext = cipher;
   
 
   }
 
+  public boolean equals(DataInfo i){
+    if(!(this.toString()).equals(i.toString()))
+      return false;
+    return true;
 
+  }
 
 
 
