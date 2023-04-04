@@ -166,14 +166,13 @@ public class Vault {
       } catch(InvalidInputException iie) {
         System.out.println("Error! Invalid character '" + iie.getCharError() + "' in text.");
         return;
+      } catch (NoSuchElementException nsee) {
+        System.out.println("Error! Encryption algorithm '" + encalg + "' not supported.");
       }
       totalData++;
     }
 
 
-    for(DataInfo i : dataS){
-      System.out.println(i);
-    }
     
     PrintWriter pw = null;
     try {
@@ -197,9 +196,6 @@ public class Vault {
 
   
     if (pw != null) pw.close();
-
-    
-
   }
 
   public static void main(String[] args) {
