@@ -152,9 +152,21 @@ public class Vault {
       } catch(IndexOutOfBoundsException e) {
         repeat = false; 
       } //should never happen
-      dataS.get(index).setCiphertext(text);
+      //ERROR
+      try{
+        dataS.get(index).setCiphertext(text);
+      } catch(InvalidInputException iie) {
+        System.out.println("Error! Invalid character '" + iie.getCharError() + "' in text.");
+        return;
+      }
     } else {
-      dataS.add(new DataInfo(usern, encalg, label, text, totalData, p));
+      //ERROR
+      try{
+        dataS.add(new DataInfo(usern, encalg, label, text, totalData, p));
+      } catch(InvalidInputException iie) {
+        System.out.println("Error! Invalid character '" + iie.getCharError() + "' in text.");
+        return;
+      }
       totalData++;
     }
 
@@ -177,9 +189,10 @@ public class Vault {
         while (!(this.data.get(++ui).getOrder() == i));
         pw.println(data.get(ui));
       } catch (IndexOutOfBoundsException eoobe) {}
-      
-      while(!(this.dataS.get(++di).getOrder() == i));
-      pw.println(dataS.get(di));
+      try { 
+        while(!(this.dataS.get(++di).getOrder() == i));
+        pw.println(dataS.get(di));
+      } catch (IndexOutOfBoundsException eoobe) {}
     }
 
   
@@ -203,6 +216,7 @@ public class Vault {
       filen = (args[1]);
     else
       filen = (args[0]);
+    
     V.readData(filen);
     //collect username and password
     System.out.print("username: ");

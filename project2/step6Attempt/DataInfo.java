@@ -134,7 +134,7 @@ public class DataInfo {
       cipher = E.encrypt(plain);
     } catch (InvalidInputException iie) {
       //SET CHARACTERS
-      throw new InvalidInputException("Error! Invalid characer '" + iie.getCharError() + "' in text.");
+      throw new InvalidInputException("Error! Invalid characer '" + iie.getCharError() + "' in text.", iie.getCharError());
     }
     this.ciphertext = cipher;
   
