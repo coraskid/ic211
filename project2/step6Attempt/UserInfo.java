@@ -31,6 +31,7 @@ public class UserInfo {
    * @param u username
    * @param e encalg
    * @param h hash
+   * @param i order
    */
   public UserInfo(String u, String e, String h, int i){
     order = i;
@@ -94,7 +95,10 @@ public class UserInfo {
   public String getAlgName(){
     return encalg;
   }
-
+  /**
+   * returns order
+   * @return order
+   */
   public int getOrder() {
     return order;
   }

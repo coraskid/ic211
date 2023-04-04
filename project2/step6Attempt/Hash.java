@@ -81,17 +81,40 @@ public class Hash {
   public String hash(char[] pswd){
     //set up the encryptor 
     this.setEncryptor();
-    E.init((pswd));
     //handle the clear encryption
-    if(E.getAlgName().equals("clear"))
+    if(E.getAlgName().equals("clear")){
+      E.init(pswd);
       return new String(xxtend(pswd));
+    }
     //handle caesar and vigenere encryption
     char[] x = initVec.toCharArray();
-    for(int i = 0; i < 16; i++){
-      int k = ((int)x[i]) %16;
-      x = shift(x, k);
-      x = (E.encrypt(new String(x))).toCharArray();
+    String pswdS = new String(pswd); 
+    for(int i = 0; i < pswd.length; i += 16){
+      char[] msg;
+      try {
+        msg = (pswdS.substring(i, i+16)).toCharArray();
+      } catch(IndexOutOfBoundsException ioobe) {
+        msg = (pswdS.substring(i)).toCharArray();
+      }
+      x = (this.hash16(x, msg)).toCharArray();
     }
-    return new String(x); 
+    return new String(x);
+  }
+
+  /**
+   * This method does an individual hash based on an initlization vector and a
+   * block of the password/message
+   * @param iv initlization vector
+   * @param block 16 (or less) char array block of the password
+   * @return hash of given inputs
+   */
+  public String hash16(char[] iv, char[] block){
+    E.init(block);
+    for(int i = 0; i < 16; i++){
+      int k = ((int)iv[i]) %16;
+      iv = shift(iv, k);
+      iv = (E.encrypt(new String(iv))).toCharArray();
+    }
+    return new String(iv);  
   }
 }

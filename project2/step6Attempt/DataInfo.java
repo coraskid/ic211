@@ -16,6 +16,7 @@ public class DataInfo {
    * @param u username
    * @param e encalg
    * @param c ciphertext
+   * @param o order
    */
   public DataInfo(String u, String e, String c, int o) {
     order = o;
@@ -35,7 +36,16 @@ public class DataInfo {
     }
     E = EOp.get(i);
   }
-
+  /**
+   * Constructor for when you are trying to make a new DataInfo object but still
+   * need to encrypt data
+   * @param u username
+   * @param e encalg
+   * @param l label
+   * @param t text
+   * @param o order
+   * @param pswd user's password
+   */
   public DataInfo(String u, String e, String l, String t, int o, char[] pswd){
     this.user = u;
     this.encalg = e;
@@ -122,11 +132,17 @@ public class DataInfo {
   public String getCipher(){
     return ciphertext;
   }
-
+  /**
+   * returns order
+   * @return order
+   */
   public int getOrder(){
     return order;
   }
-
+  /**
+   * sets a new ciphertext given a new text value
+   * @param text new text value you want to replace
+   */
   public void setCiphertext(String text){
     String plain = this.getLabel() + "_" + text;
     String cipher;
@@ -137,18 +153,16 @@ public class DataInfo {
       throw new InvalidInputException("Error! Invalid characer '" + iie.getCharError() + "' in text.", iie.getCharError());
     }
     this.ciphertext = cipher;
-  
-
   }
-
+  /**
+   * checks to see if two DataInfo objects are equal
+   * @param i DataInfo object you are checking against the instance object
+   * @return true if equal, false otherwise
+   */
   public boolean equals(DataInfo i){
     if(!(this.toString()).equals(i.toString()))
       return false;
     return true;
 
   }
-
-
-
-
 }
