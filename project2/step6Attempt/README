@@ -1,0 +1,8 @@
+Cora Skidmore m255844
+
+Submitting for step 7.
+
+Known Error: when adding data, if you try to add data that has a label
+already in use, but has a new encalg, it will not honor that encalg
+change. Whether or not the inputted encalg value is valid or not, it will
+still rewrite the text for that label and keeps the old encalg.

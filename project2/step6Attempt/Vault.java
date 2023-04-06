@@ -5,6 +5,8 @@ public class Vault {
 
   private ArrayList<UserInfo> data = new ArrayList<UserInfo>();
   private ArrayList<DataInfo> dataS = new ArrayList<DataInfo>();
+  private ArrayList<DataInfo> userData = new ArrayList<DataInfo>();
+  private int totalData;
   /**
    * Read data from a file into data (for users) and dataS (for data)
    * @param filen file name
@@ -20,6 +22,7 @@ public class Vault {
     }
     
     //read each line of file and add it to this instances data ArrayList
+    int count = 0;
     while(sc.hasNextLine()){
       String[] line = sc.nextLine().split(" ");
       //could do a try except with seperate func if needed
@@ -29,15 +32,17 @@ public class Vault {
       }
       //read in a user and add it to data
       if(line[0].equals("user")){
-        UserInfo cur = new UserInfo(line[1], line[2], line[3]);
+        UserInfo cur = new UserInfo(line[1], line[2], line[3], count);
         this.data.add(cur);
       }
       //read in a data and add it to dataS
       if(line[0].equals("data")){
-        DataInfo cur = new DataInfo(line[1], line[2], line[3]);
+        DataInfo cur = new DataInfo(line[1], line[2], line[3], count);
         this.dataS.add(cur);
       }
+      count++;
     }
+    totalData = count;
   }
   /**
    * verify a user, will print out access denied and quit the program or print
@@ -116,30 +121,88 @@ public class Vault {
     pw.print(N.toString());
     if (pw != null) pw.close();
   }
-  /*
-  public void addData(Scanner in, String usern, String filen, ArrayList<DataInfo> userData){
-    String encalc = in.next();
+  /**
+   * This function adds data to the file given user input
+   * @param in Scanner (likely only System.in)
+   * @param usern username
+   * @param filen filename
+   * @param p password
+   */
+  public void addData(Scanner in, String usern, String filen, char[] p){
+    //get the rest of the user input
+    String encalg = in.next();
     String label = in.next();
     String text = in.next();
-    
-    int i = -1;
+    //Testing the label to make sure it doesnt contain unwanted characters
+    try {
+      Encryptor testLabel = new Clear();
+      testLabel.test(label, "label");
+    } catch(InvalidInputException iie) {
+      System.out.println("Error! Label '" + label + "' is invalid.");
+      return;
+    }
+    if(label.contains("_")){
+      System.out.println("Error! Label '" + label + "' is invalid.");
+      return;
+    }
+    //Looking to see if the label is already in use
+    int useri = -1;
     boolean repeat = true;
-    try{
-      while( !E.get(++i).getLabel().equals(label));
-    } catch(IndexOutOfBoundsException e) {
+    try {
+      while (!this.userData.get(++useri).getLabel().equals(label));
+    } catch(IndexOutOfBoundsException e ) {
       repeat = false;
     }
-    
-    int index;
-    if(repeat){
-      index = V.DataS.indexOf(userData.get(i));
-      V.DataS.get(index).
-
-
-
-
+    //If it is already in use, finding it in the dataS ArrayList
+    if (repeat) {
+      int index = -1;
+      try { 
+        while (!this.dataS.get(++index).equals(this.userData.get(useri)));
+      } catch(IndexOutOfBoundsException e) {
+        repeat = false; 
+      } //should never happen
+      //checking for errors
+      try{
+        dataS.get(index).setCiphertext(text);
+      } catch(InvalidInputException iie) {
+        System.out.println("Error! Invalid character '" + iie.getCharError() + "' in text.");
+        return;
+      }
+    } else {
+      //checking for errors and adding a new DataInfo to dataS
+      try{
+        DataInfo inputed = new DataInfo(usern, encalg, label, text, totalData, p);
+        this.dataS.add(inputed);
+        this.userData.add(inputed);
+      } catch(InvalidInputException iie) {
+        System.out.println("Error! Invalid character '" + iie.getCharError() + "' in text.");
+        return;
+      } catch (NoSuchElementException nsee) {
+        System.out.println("Error! Encryption algorithm '" + encalg + "' not supported.");
+      }
+      totalData++;
+    }
+    //Reprinting the file 
+    PrintWriter pw = null;
+    try {
+      pw = new PrintWriter(new File(filen));
+    } catch (FileNotFoundException fnfe) {
+      fnfe.printStackTrace();
+    }
+    for(int i = 0; i < totalData; i++){
+      int ui = -1;
+      int di = -1;
+      try {
+        while (!(this.data.get(++ui).getOrder() == i));
+        pw.println(data.get(ui));
+      } catch (IndexOutOfBoundsException eoobe) {}
+      try { 
+        while(!(this.dataS.get(++di).getOrder() == i));
+        pw.println(dataS.get(di));
+      } catch (IndexOutOfBoundsException eoobe) {}
+    }
+    if (pw != null) pw.close();
   }
-*/
 
   public static void main(String[] args) {
     //no command line arguement or invalid tac option
@@ -147,7 +210,7 @@ public class Vault {
       System.out.println("usage: java Vault [-au] <filename>");
       System.exit(1);
     }
-
+    
     //create Vault and read in data
     Vault V = new Vault();
     String filen;
@@ -156,13 +219,13 @@ public class Vault {
     else
       filen = (args[0]);
     V.readData(filen);
+
     //collect username and password
     System.out.print("username: ");
     String usern = System.console().readLine();
     System.out.print("password: ");
     char[] pswd = System.console().readPassword();
 
-    
     //Add user option (-au)
     if(args.length == 2){
       V.addUser(args[1], usern, pswd);
@@ -173,11 +236,11 @@ public class Vault {
     Scanner in = new Scanner(System.in);
     V.verify(pswd, usern, in);
     
-    ArrayList<DataInfo> userData = new ArrayList<DataInfo>();
+    //ArrayList<DataInfo> userData = new ArrayList<DataInfo>();
     for(DataInfo i : V.dataS){
       if(i.getUser().equals(usern)){
         i.initP(pswd);
-        userData.add(i);
+        V.userData.add(i);
       }
     }
     System.out.print("> ");
@@ -185,7 +248,7 @@ public class Vault {
     while(!cmd.equals("quit")){
       //LABELS cmd 
       if(cmd.equals("labels")){
-        for(DataInfo i : userData){
+        for(DataInfo i : V.userData){
           try{
             System.out.println(i.getLabel());
           } catch (Exception e) {
@@ -196,7 +259,7 @@ public class Vault {
       //GET cmd
       else if(cmd.equals("get")){
         String l = in.next();
-        for(DataInfo i : userData){
+        for(DataInfo i : V.userData){
           if(i.getLabel().equals(l)){
             try{
               System.out.println(i.getPlain(pswd));
@@ -206,16 +269,10 @@ public class Vault {
           }
         }
       }
-      /*
       //ADD cmd
       else if(cmd.equals("add")){
-        //String encalg = in.next();
-        //String label = in.next();
-        //String text = in.next();
-        V.addData(in, usern, filen, userData);
-
-
-      }*/
+        V.addData(in, usern, filen, pswd);  
+      }
       //UNKNOWN cmd
       else {
         System.out.println("Unknown command '" + cmd + "'.");
