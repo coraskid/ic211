@@ -34,4 +34,5 @@ public class Clear implements Encryptor {
     test(cipher, "cipher");
     return cipher; 
   }
+  
 }
