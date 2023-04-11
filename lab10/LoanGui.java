@@ -8,7 +8,7 @@ public class LoanGui extends JFrame {
   private JTextField monToPayOff;
   private JTextField cost;
   private JButton calc;
-  private final String[] rates = {"3.50", "3.75", "5.00", "5.25", "5.50", "5.75", "7.50"}; //FINISH THIS
+  private final String[] rates = {"3.50", "3.75", "4.00", "4.25", "4.50", "4.75", "5.00", "5.25", "5.50", "5.75", "6.00", "6.25", "6.50", "6.75", "7.00", "7.25", "7.50"}; //FINISH THIS
 
   
   public LoanGui() {
@@ -58,11 +58,14 @@ public class LoanGui extends JFrame {
     return Double.parseDouble((String)intRate.getSelectedItem());
   }
 
-  public int getMonPay() {
-    return Integer.parseInt(monPay.getText());
+  public double getMonPay() {
+    return Double.parseDouble(monPay.getText());
   }
-  public void setCost(double c) {
-    cost.setText("" + c);
+  public void setCost(String c) {
+    cost.setText(c);
+  }
+  public void setMonToPay(String m) {
+    monToPayOff.setText(m);
   }
 
 

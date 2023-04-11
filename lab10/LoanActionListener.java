@@ -7,8 +7,17 @@ class LoanActionListener implements ActionListener {
   }
 
   public void actionPerformed(ActionEvent e) {
-    double la = lg.getLoanAmt();
-    lg.setCost(la);
+    double amount = lg.getLoanAmt();
+    double rate = lg.getRate();
+    double pay = lg.getMonPay();
+    financeStuff a = new financeStuff(amount, rate, pay);
+    try {
+      lg.setCost("" + a.getCost());
+      lg.setMonToPay("" + a.getMonths());
+    } catch (InfinateLoanException ile){
+      lg.setCost("infinate");
+      lg.setMonToPay("infinate");
+    }
 
 
 

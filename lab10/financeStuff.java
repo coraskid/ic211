@@ -32,7 +32,7 @@ public class financeStuff {
     double interest = (bal*rate)/1200;
     bal = bal + interest;
     if (interest > payment) {
-      throw new Exception();
+      throw new InfinateLoanException("You will never pay it off");
     }
   }
 
@@ -49,15 +49,34 @@ public class financeStuff {
   }
 
   public static double moneyRound(double c){
-    return Math.round(c*100)/100;
+    return ((int)Math.round(c*100))/100.00;
   }
 
+  public int getMonths(){
+    return this.months;
+  }
+
+  public double getCost(){
+    return this.cost;
+  }
   public static void main(String[] args){
+    if(args.length != 3){
+      System.out.println("usage: java Calc <amount> <rate> <payment>");
+      System.exit(1);
+    }
+    double amount = 0, rate = 0, payment = 0;
+    try {
+      amount = Double.parseDouble(args[0]);
+      rate = Double.parseDouble(args[1]);
+      payment = Double.parseDouble(args[2]);
+    } catch (Exception e) {
+      System.out.println("Error");
+      System.exit(1);
+    }
 
+    financeStuff a = new financeStuff(amount, rate, payment);
 
-    financeStuff a = new financeStuff(4500.00, 4.25, 95.50);
-
-    System.out.println("hi: " + a.months + " " + a.cost);
+    System.out.println("months = " + a.getMonths() + " cost = " + a.getCost());
 
   }
 
