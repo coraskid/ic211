@@ -13,18 +13,12 @@ public class financeStuff {
     rate = r;
     payment = p;
     bal = a;
-    //System.out.println(a);
-    //System.out.println(payment);
     while(bal > 0) {
-      //System.out.println(bal);
       this.addMonInterest();
-      //System.out.println(bal);
       this.payMon();
     }
     cost = this.calcCost();
     cost = moneyRound(cost);
-    //System.out.println(cost);
-
   }
 
 
