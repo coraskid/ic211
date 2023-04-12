@@ -1,3 +1,7 @@
+/**
+ * This Class sets up the GUI window
+ * @author Cora Skidmore
+ */
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -10,9 +14,11 @@ public class LoanGui extends JFrame {
   private JButton calc;
   private final String[] rates = {"3.50", "3.75", "4.00", "4.25", "4.50", "4.75", "5.00", "5.25", "5.50", "5.75", "6.00", "6.25", "6.50", "6.75", "7.00", "7.25", "7.50"}; //FINISH THIS
 
-  
+  /**
+   * Constructor, set up the new window
+   */
   public LoanGui() {
-
+    //establish all the fields
     loanAmt = new JTextField("10000.00", 10);
     intRate = new JComboBox<String>(rates);
     monPay = new JTextField("250", 10);
@@ -21,7 +27,7 @@ public class LoanGui extends JFrame {
     calc = new JButton("calculate");
     monToPayOff.setEditable(false);
     cost.setEditable(false);
-
+    //top stuff
     JPanel tPanel = new JPanel(new FlowLayout());
     tPanel.add(new JLabel("loan amount"));
     tPanel.add(loanAmt);
@@ -29,18 +35,18 @@ public class LoanGui extends JFrame {
     tPanel.add(intRate);
     tPanel.add(new JLabel("monthly payment"));
     tPanel.add(monPay);
-
+    //bottom center
     JPanel mPanel = new JPanel();
     mPanel.add(new JLabel("months to payoff"));
     mPanel.add(monToPayOff);
     JPanel cPanel = new JPanel();
     cPanel.add(new JLabel("cost"));
     cPanel.add(cost);
-
+    //listener
     ActionListener a = new LoanActionListener(this);
     calc.addActionListener(a);
 
-
+  
     this.add(tPanel, BorderLayout.NORTH);
     this.add(mPanel, BorderLayout.CENTER);
     this.add(cPanel, BorderLayout.SOUTH);
@@ -49,21 +55,38 @@ public class LoanGui extends JFrame {
     this.setTitle("Skidmore, Corinna - m255844");
     this.pack();//idk if needed?
   }
-  
+  /**
+   * Get double typed inthe the loanAmt field
+   * @return user typed double
+   */
   public double getLoanAmt() {
     return Double.parseDouble(loanAmt.getText());
   }
-
+  /**
+   * Get rate from drop down
+   * @return user selected rate
+   */
   public double getRate() {
     return Double.parseDouble((String)intRate.getSelectedItem());
   }
-
+  /**
+   * Get monthly pay from user
+   * @return user typed double
+   */
   public double getMonPay() {
     return Double.parseDouble(monPay.getText());
   }
+  /**
+   * Set the cost in the cost box
+   * @param c new cost to set
+   */
   public void setCost(String c) {
     cost.setText(c);
   }
+  /**
+   * set the months to pay in the Months to pay off box
+   * @param m new number of months to set
+   */
   public void setMonToPay(String m) {
     monToPayOff.setText(m);
   }
