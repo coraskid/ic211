@@ -16,7 +16,7 @@ public class CountClick implements ActionListener {
     if(prev == null || !prev.isAlive()){
       int time = -1;
       try{
-        time = Integer.parseInt(label.getText());
+        time = Integer.parseInt(b1.getText());
       } catch (NumberFormatException nfe) {
         label.setText("ERROR");
         return;
