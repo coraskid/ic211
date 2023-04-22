@@ -1,16 +1,14 @@
 import java.awt.*;
 import javax.swing.*;
 
-//uses class notes
-
-public class Proj {
-  public static class MainThread extends Thread {
-    private DrawAq da;
+public class Ex3 {
+  public static class AniThread extends Thread {
+    private DrawArea da;
     
-    public MainThread(DrawAq d) {
+    public AniThread(DrawArea d) {
       da = d;
     }
-    
+
     public void run() {
       while (true) {
         try {
@@ -20,18 +18,16 @@ public class Proj {
         da.repaint();
       }
     }
-    
   }
 
   public static void main(String[] args) {
     JFrame   f = new JFrame();
-    f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    DrawAq d = new DrawAq(args[0]);
+    DrawArea d = new DrawArea();
 
     f.add(d);
     f.pack();
     f.setVisible(true);
-    Thread t = new MainThread(d);
+    Thread t = new AniThread(d);
     t.start();
   }
 }

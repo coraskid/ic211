@@ -14,10 +14,12 @@ public class DrawAq extends JComponent {
     DrawAq("aquar.png");
   }
   */
+  private Plankton t;
   BufferedImage img;
 
   public DrawAq(String fname){
     BufferedImage img = null;
+    t = new Plankton();
     int height = 0;
     int width = 0;
     try {
@@ -35,13 +37,17 @@ public class DrawAq extends JComponent {
     //g2.drawImage(img, width, height, null);
   }
 
+  public void step(){
+    t.step();
+  }
+
   protected void paintComponent(Graphics g){
     super.paintComponent(g);
     Graphics2D g2 = (Graphics2D)g;
     
     g2.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), null);
-
-
+    t.paint(g2);
+    
 
 
 
