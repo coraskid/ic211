@@ -44,8 +44,10 @@ public class DrawAq extends JComponent {
   protected void paintComponent(Graphics g){
     super.paintComponent(g);
     Graphics2D g2 = (Graphics2D)g;
-    
+    int curW = this.getWidth();
+    int curH = this.getHeight();
     g2.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), null);
+    System.out.println(this.getWidth() + " " + this.getHeight());
     t.paint(g2);
     
 
