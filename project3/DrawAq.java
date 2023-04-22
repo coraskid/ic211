@@ -55,5 +55,3 @@ public class DrawAq extends JComponent {
 
   }
 }
-    
-    

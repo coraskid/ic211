@@ -27,8 +27,9 @@ public class Proj {
     JFrame   f = new JFrame();
     f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     DrawAq d = new DrawAq(args[0]);
-
+    ControlPanel cp = new ControlPanel();
     f.add(d);
+    f.add(cp, BorderLayout.WEST);
     f.pack();
     f.setVisible(true);
     Thread t = new MainThread(d);

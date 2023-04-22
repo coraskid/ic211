@@ -17,7 +17,8 @@ public class Plankton extends Animal {
   }
 
   public void paint(Graphics2D g){
-    g.fill(new Ellipse2D.Double(x,y,20,20));
+    g.setColor(new Color(50, 150, 100));
+    g.fill(new Ellipse2D.Double(x,y,10,10));
   }
 
   public void step(){
