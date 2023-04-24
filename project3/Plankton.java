@@ -7,13 +7,16 @@ import javax.swing.*;
 public class Plankton extends Animal {
   
   private double depthGoal;
+   
 
   public Plankton(){
     super();
-    Random rand = new Random();
-    depthGoal = rand.nextInt(400);
+    //Random rand = new Random();
+    depthGoal = rand.nextInt(820);
     this.y = 0;
-    this.x = rand.nextInt(400);
+    this.x = rand.nextInt(1791);
+    speed = 1;
+    type = 1;
   }
 
   public void paint(Graphics2D g){
@@ -23,7 +26,7 @@ public class Plankton extends Animal {
 
   public void step(){
     if ( y < depthGoal)
-      y++;
+      y += speed;
   }
   
 

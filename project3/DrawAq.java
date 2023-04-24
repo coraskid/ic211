@@ -16,10 +16,12 @@ public class DrawAq extends JComponent {
   */
   private Plankton t;
   BufferedImage img;
+  private Zoo zoo;
 
-  public DrawAq(String fname){
+  public DrawAq(String fname, Zoo z){
     BufferedImage img = null;
-    t = new Plankton();
+    this.zoo = z;
+    //t = new Plankton();
     int height = 0;
     int width = 0;
     try {
@@ -38,7 +40,9 @@ public class DrawAq extends JComponent {
   }
 
   public void step(){
-    t.step();
+    for(Animal i : zoo){
+      i.step();
+    }
   }
 
   protected void paintComponent(Graphics g){
@@ -48,7 +52,9 @@ public class DrawAq extends JComponent {
     int curH = this.getHeight();
     g2.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), null);
     System.out.println(this.getWidth() + " " + this.getHeight());
-    t.paint(g2);
+    for(Animal i : zoo){
+      i.paint(g2);
+    }
     
 
 

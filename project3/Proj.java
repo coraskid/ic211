@@ -25,8 +25,9 @@ public class Proj {
 
   public static void main(String[] args) {
     JFrame   f = new JFrame();
+    Zoo zoo = new Zoo();
     f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    DrawAq d = new DrawAq(args[0]);
+    DrawAq d = new DrawAq(args[0], zoo);
     ControlPanel cp = new ControlPanel();
     f.add(d);
     f.add(cp, BorderLayout.WEST);
@@ -34,5 +35,6 @@ public class Proj {
     f.setVisible(true);
     Thread t = new MainThread(d);
     t.start();
+    zoo.addP();
   }
 }
