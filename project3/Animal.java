@@ -12,10 +12,12 @@ public abstract class Animal {
   protected double x, y;
   protected int type;
   protected Random rand;
+  protected TankSize ts;
 
-  public Animal(){
+  public Animal(TankSize ts){
     alive = true;
     rand = new Random();
+    this.ts = ts;
   }
 
   public abstract void paint(Graphics2D g);

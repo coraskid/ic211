@@ -8,10 +8,10 @@ public class SFish extends Animal {
   //MOVES UP DOWN LEFT RIGHT
   private int stepCount = 0;
   private int direction;
-  public SFish(){
-    super();
+  public SFish(TankSize ts){
+    super(ts);
     //depthGoal = rand.nextInt(820);
-    this.y = rand.nextInt(820);
+    this.y = rand.nextDouble();
     this.x = 0;
     speed = 2;
     type = 2;
@@ -20,12 +20,12 @@ public class SFish extends Animal {
 
   public void paint(Graphics2D g){
     g.setColor(new Color(50, 150, 0));
-    g.fill(new Ellipse2D.Double(x,y,15,15));
+    g.fill(new Ellipse2D.Double((x*ts.getHorz()),(y*ts.getVert()),15,15));
   }
 
   public void step(){
-    //if ( y < depthGoal)
-    //  y += speed;
+    if ( x < ts.getHorz())
+      x += (speed * .001);
   }
 
   //private void stepleft(
@@ -41,3 +41,5 @@ public class SFish extends Animal {
 
 
 }
+
+
