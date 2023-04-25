@@ -50,6 +50,14 @@ public class DrawAq extends JComponent {
   protected void paintComponent(Graphics g){
     super.paintComponent(g);
     Graphics2D g2 = (Graphics2D)g;
+
+    g2.setRenderingHint(
+      RenderingHints.KEY_ANTIALIASING,
+      RenderingHints.VALUE_ANTIALIAS_ON);
+    g2.setRenderingHint(
+      RenderingHints.KEY_RENDERING,
+      RenderingHints.VALUE_RENDER_QUALITY);
+
     ts.setHorz(this.getWidth());
     ts.setVert(this.getHeight());
     g2.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), null);

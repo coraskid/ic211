@@ -1,5 +1,7 @@
 import java.util.*;
 import java.io.*;
+import javax.imageio.*;
+import java.awt.image.*;
 import java.awt.geom.*;
 import java.awt.*;
 import javax.swing.*;
@@ -8,6 +10,7 @@ public class SFish extends Animal {
   //MOVES UP DOWN LEFT RIGHT
   private int stepCount = 0;
   private int direction;
+  private BufferedImage img;
   public SFish(TankSize ts){
     super(ts);
     //depthGoal = rand.nextInt(820);
@@ -16,11 +19,18 @@ public class SFish extends Animal {
     speed = 2;
     type = 2;
     direction = 1;
+
+    BufferedImage image = null;
+    try {
+      image = ImageIO.read(new File("Sfish.png"));
+    } catch (IOException ioe) {}
+    this.img = image;
   }
 
   public void paint(Graphics2D g){
-    g.setColor(new Color(50, 150, 0));
-    g.fill(new Ellipse2D.Double((x*ts.getHorz()),(y*ts.getVert()),15,15));
+    //g.setColor(new Color(50, 150, 0));
+    //g.fill(new Ellipse2D.Double((x*ts.getHorz()),(y*ts.getVert()),15,15));
+    g.drawImage(img, (int)(x*ts.getHorz()), (int)(y*ts.getVert()), null);
   }
 
   public void step(){
