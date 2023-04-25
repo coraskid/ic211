@@ -28,7 +28,7 @@ public class SFish extends Animal {
     //  y += speed;
   }
 
-  private void stepleft(
+  //private void stepleft(
 
 
 
