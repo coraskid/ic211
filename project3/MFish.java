@@ -6,23 +6,23 @@ import java.awt.geom.*;
 import java.awt.*;
 import javax.swing.*;
 
-public class SFish extends Animal {
+public class MFish extends Animal {
   //MOVES UP DOWN LEFT RIGHT
   private int stepCount = 0;
   private int direction;
   private BufferedImage img;
-  public SFish(TankSize ts){
+  public MFish(TankSize ts){
     super(ts);
     //depthGoal = rand.nextInt(820);
     this.y = rand.nextDouble();
     this.x = 0;
     speed = 2;
-    type = 2;
+    type = 3;
     direction = 1;
 
     BufferedImage image = null;
     try {
-      image = ImageIO.read(new File("Sfish.png"));
+      image = ImageIO.read(new File("Mfish.png"));
     } catch (IOException ioe) {}
     this.img = image;
   }

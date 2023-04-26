@@ -11,6 +11,10 @@ public class Zoo extends ArrayList<Animal>{
     }
     SFish s = new SFish(ts);
     this.add(s);
+    MFish m = new MFish(ts);
+    this.add(m);
+    Shark sh = new Shark(ts);
+    this.add(sh);
   }
   
   public void addP(){
