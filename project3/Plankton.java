@@ -17,7 +17,7 @@ public class Plankton extends Animal {
     this.y = 0;
     //this.x = rand.nextInt(1791);
     this.x = rand.nextDouble();
-    speed = 1;
+    speed = rand.nextInt(20);
     type = 1;
   }
 
@@ -28,7 +28,7 @@ public class Plankton extends Animal {
 
   public void step(){
     if ( y < depthGoal)
-      y += (speed * .001);
+      y += (speed * .0001);
   }
   
 
