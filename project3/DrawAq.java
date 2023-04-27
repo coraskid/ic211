@@ -14,10 +14,16 @@ public class DrawAq extends JComponent {
     DrawAq("aquar.png");
   }
   */
+  private Plankton t;
   BufferedImage img;
+  private Zoo zoo;
+  private TankSize ts;
 
-  public DrawAq(String fname){
+  public DrawAq(String fname, Zoo z, TankSize ts){
     BufferedImage img = null;
+    this.ts = ts;
+    this.zoo = z;
+    //t = new Plankton();
     int height = 0;
     int width = 0;
     try {
@@ -35,17 +41,33 @@ public class DrawAq extends JComponent {
     //g2.drawImage(img, width, height, null);
   }
 
+  public void step(){
+    for(Animal i : zoo){
+      i.step();
+    }
+  }
+
   protected void paintComponent(Graphics g){
     super.paintComponent(g);
     Graphics2D g2 = (Graphics2D)g;
-    
+
+    g2.setRenderingHint(
+      RenderingHints.KEY_ANTIALIASING,
+      RenderingHints.VALUE_ANTIALIAS_ON);
+    g2.setRenderingHint(
+      RenderingHints.KEY_RENDERING,
+      RenderingHints.VALUE_RENDER_QUALITY);
+
+    ts.setHorz(this.getWidth());
+    ts.setVert(this.getHeight());
     g2.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), null);
-
-
+    System.out.println(this.getWidth() + " " + this.getHeight());
+    for(Animal i : zoo){
+      i.paint(g2);
+    }
+    
 
 
 
   }
 }
-    
-    

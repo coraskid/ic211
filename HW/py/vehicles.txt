@@ -1,0 +1,10 @@
+truck f150 18
+car maxima 33
+car corvette 27
+plane 747 1
+car civic 35
+plane g550 2
+truck silverado 15
+motorcycle yamaha 52
+car scion 34
+truck tahoe 12
