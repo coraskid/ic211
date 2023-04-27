@@ -24,6 +24,14 @@ public abstract class Animal {
 
   public abstract void step();
 
+  public int getType(){
+    return this.type;
+  }
+
+  public void setSpeed(int s){
+    this.speed = s;
+  }
+
 
 
 

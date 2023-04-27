@@ -17,7 +17,7 @@ public class Shark extends Animal {
     this.y = rand.nextDouble();
     this.x = 0;
     speed = 2;
-    type = 3;
+    type = 4;
     direction = 1;
 
     BufferedImage image = null;
