@@ -3,8 +3,8 @@ public class TankSize {
   private int vert;
 
   public TankSize(){
-    horz = 0;
-    vert = 0;
+    horz = 4496;
+    vert = 3000;
   }
 
   public int getHorz(){

@@ -45,6 +45,26 @@ public class DrawAq extends JComponent {
     for(Animal i : zoo){
       i.step();
     }
+    //zoo.overlap();
+  }
+    
+  public void overlap(){
+    for(Animal i : zoo){ //bigger fish
+      
+      for(Animal j : zoo){ //smaller fish that gets eaten
+        int iT = i.getType();
+        int jT = j.getType();
+        if((iT == 4 && (jT == 2 || jT == 3)) || ((iT == 2 || iT == 3) && jT == 1)){
+          //System.out.println("checking");
+          if(j.getShape().intersects((Rectangle2D)i.getShape())){
+            //System.out.println("checked!");
+            j.kill();
+          }
+        }
+      }
+      
+    }
+    
   }
 
   protected void paintComponent(Graphics g){
@@ -61,7 +81,7 @@ public class DrawAq extends JComponent {
     ts.setHorz(this.getWidth());
     ts.setVert(this.getHeight());
     g2.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), null);
-    System.out.println(this.getWidth() + " " + this.getHeight());
+    //System.out.println(this.getWidth() + " " + this.getHeight());
     for(Animal i : zoo){
       i.paint(g2);
     }

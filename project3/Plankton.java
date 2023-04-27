@@ -22,13 +22,19 @@ public class Plankton extends Animal {
   }
 
   public void paint(Graphics2D g){
+    if(this.alive){
     g.setColor(new Color(50, 150, 100));
     g.fill(new Ellipse2D.Double((x*ts.getHorz()),(y*ts.getVert()),10,10));
+    }
   }
 
   public void step(){
     if ( y < depthGoal)
       y += (speed * .0001);
+  }
+
+  public Shape getShape(){
+    return new Ellipse2D.Double((x*ts.getHorz()),(y*ts.getVert()),10,10);
   }
   
 

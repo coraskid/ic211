@@ -25,12 +25,14 @@ public class MFish extends Animal {
       image = ImageIO.read(new File("Mfish.png"));
     } catch (IOException ioe) {}
     this.img = image;
+    System.out.println((int)(x*ts.getHorz()) + " " + (int)(y*ts.getVert()));
   }
 
   public void paint(Graphics2D g){
     //g.setColor(new Color(50, 150, 0));
     //g.fill(new Ellipse2D.Double((x*ts.getHorz()),(y*ts.getVert()),15,15));
-    g.drawImage(img, (int)(x*ts.getHorz()), (int)(y*ts.getVert()), null);
+    if(alive)
+      g.drawImage(img, (int)(x*ts.getHorz()), (int)(y*ts.getVert()), null);
   }
 
   public void step(){
@@ -42,6 +44,12 @@ public class MFish extends Animal {
 
 
 
+  public Shape getShape(){
+    return new Rectangle2D.Double((int)(x*ts.getHorz()), 
+                                  (int)(y*ts.getVert()),
+                                  this.img.getWidth(),
+                                  this.img.getHeight());
+  }
 
 
   
