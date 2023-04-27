@@ -1,5 +1,5 @@
 
-
+/*
 public class MainThread extends Thread {
   private DrawAq da;
   private boolean kill;
@@ -32,4 +32,4 @@ public class MainThread extends Thread {
     return new MainThread(da);
   }
 }
-
+*/
