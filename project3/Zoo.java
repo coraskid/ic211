@@ -34,5 +34,14 @@ public class Zoo extends ArrayList<Animal>{
     this.add(sh);
   }
 
+  public void changeSpeed(int type, int speed){
+    for(Animal i : this) {
+      if(i.getType() == type){
+        i.setSpeed(speed);
+      }
+    }
+
+  }
+
 
 }

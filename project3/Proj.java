@@ -19,5 +19,6 @@ public class Proj {
     f.pack();
     f.setVisible(true);
     t.start();
+    zoo.changeSpeed(1, 4);
   }
 }
