@@ -21,6 +21,18 @@ public class Zoo extends ArrayList<Animal>{
     Plankton p = new Plankton(ts);
     this.add(p);
   }
+  public void addSF(){
+    SFish s = new SFish(ts);
+    this.add(s);
+  }
+  public void addMF(){
+    MFish m = new MFish(ts);
+    this.add(m);
+  }
+  public void addSh(){
+    Shark sh = new Shark(ts);
+    this.add(sh);
+  }
 
 
 }

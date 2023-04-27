@@ -12,13 +12,12 @@ public class Proj {
     
     DrawAq d = new DrawAq(args[0], zoo, ts);
     MainThread t = new MainThread(d);
-    ControlPanel cp = new ControlPanel(t);
+    ControlPanel cp = new ControlPanel(t, zoo);
     f.add(d);
     f.add(cp, BorderLayout.WEST);
     f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     f.pack();
     f.setVisible(true);
     t.start();
-    zoo.addP();
   }
 }

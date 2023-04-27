@@ -19,6 +19,9 @@ public class MainThread extends Thread {
   public void kill(){
     this.kill = true;
   }
+  public void deadPaint(){
+    da.repaint();
+  }
 
   public MainThread newCopy(){
     return new MainThread(da);

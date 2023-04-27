@@ -7,7 +7,7 @@ public class ControlPanel extends JPanel{
   private JButton onOff;
   private JComboBox addType;
   private JButton addFish;
-  private final String types = {"Shark", "MFish", "SFish", "Plankton"};
+  private final String[] types = {"Shark", "MFish", "SFish", "Plankton"};
 
   public ControlPanel(MainThread t, Zoo zoo){
     test = new JLabel("Working?");
@@ -17,9 +17,11 @@ public class ControlPanel extends JPanel{
     
     addType = new JComboBox<String>(types);
     addFish = new JButton("Add");
+    addFish.addActionListener(new AddActionListener(addFish, addType, zoo, t));
     JPanel addPanel = new JPanel(new FlowLayout());
     addPanel.add(addType);
     addPanel.add(addFish);
+
     
 
     onOff = new JButton("Run/Pause");
@@ -27,8 +29,9 @@ public class ControlPanel extends JPanel{
     
     //full vertical layout of panel
     JPanel p = new JPanel();
-    p.add(onOff);
     p.setLayout(new BoxLayout(p, BoxLayout.PAGE_AXIS)); 
+    p.add(onOff);
+    p.add(addPanel);
     p.add(test);
     p.add(t2);
 
