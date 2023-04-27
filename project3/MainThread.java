@@ -10,9 +10,12 @@ public class MainThread extends Thread {
   public void run() {
     while (!kill) {
       try {
-        Thread.sleep(20);
+        Thread.sleep(10);
       } catch (Exception e) {}
       da.step();
+
+      da.overlap();
+      //check overlaps
       da.repaint();
     }
   }

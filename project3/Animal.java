@@ -32,7 +32,14 @@ public abstract class Animal {
     this.speed = s;
   }
 
+  public abstract Shape getShape();
 
+  public void kill(){
+    System.out.println("eaten");
+    this.alive = false;
+  }
 
-
+  public boolean isAlive(){
+    return this.alive;
+  }
 }
