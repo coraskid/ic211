@@ -25,7 +25,7 @@ public class ControlPanel extends JPanel{
     
 
     onOff = new JButton("Run/Pause");
-    onOff.addActionListener(new PauseActionListener(onOff, t));
+    onOff.addActionListener(new PauseActionListener(onOff, t, zoo));
     
     //full vertical layout of panel
     JPanel p = new JPanel();

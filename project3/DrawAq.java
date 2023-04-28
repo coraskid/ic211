@@ -4,6 +4,7 @@ import javax.swing.*;
 import javax.imageio.*;
 import java.awt.image.*;
 import java.io.*;
+import java.util.*;
 
 //uses class notes
 
@@ -42,16 +43,18 @@ public class DrawAq extends JComponent {
   }
 
   public void step(){
-    for(Animal i : zoo){
+    ArrayList<Animal> cpy = zoo.cpy();
+    for(Animal i : cpy){
       i.step();
     }
     //zoo.overlap();
   }
     
   public void overlap(){
-    for(Animal i : zoo){ //bigger fish
+    ArrayList<Animal> cpy = zoo.cpy();
+    for(Animal i : cpy){ //bigger fish
       
-      for(Animal j : zoo){ //smaller fish that gets eaten
+      for(Animal j : cpy){ //smaller fish that gets eaten
         int iT = i.getType();
         int jT = j.getType();
         if((iT == 4 && (jT == 2 || jT == 3)) || ((iT == 2 || iT == 3) && jT == 1)){
@@ -63,7 +66,14 @@ public class DrawAq extends JComponent {
         }
       }
       
-    } 
+    }
+   /* 
+    for(Animal i : zoo){
+      if(!i.isAlive()){
+        zoo.removeFish(i);
+      }
+    }
+    */
   }
 
   protected void paintComponent(Graphics g){
@@ -81,13 +91,13 @@ public class DrawAq extends JComponent {
     ts.setVert(this.getHeight());
     g2.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), null);
     //System.out.println(this.getWidth() + " " + this.getHeight());
-    for(Animal i : zoo){
-      if(i.isAlive())
-        i.paint(g2); 
+    ArrayList<Animal> cpy = zoo.cpy();
+    for(Animal i : cpy){
+      i.paint(g2); 
       //i.step();
     }
    
-    this.overlap();
+    //this.overlap();
     
 
 

@@ -46,11 +46,25 @@ public class Zoo extends ArrayList<Animal>{
 
   }
 
+  //only alive fish
+  public ArrayList<Animal> cpy(){
+    ArrayList<Animal> cpy = new ArrayList<Animal>();
+    for(Animal i : this){
+      if(i.isAlive())
+        cpy.add(i);
+    }
+    /*
+    try {
+      cpy = (ArrayList<Animal>) this.clone();
+    } catch (Exception e){} */
+    return cpy;
+  }
 /*
   public void overlap(){
-    for(Animal i : this){
+    ArrayList<Animal> cpy = (ArrayList<Animal>) this.clone(); 
+    for(Animal i : cpy){
 
-      for(Animal j : this){
+      for(Animal j : cpy){
         int iT = i.getType();
         int jT = j.getType();
         if((iT == 4 && (jT == 2 || jT == 3)) || ((iT == 2 || iT == 3) && jT == 1)){
@@ -71,8 +85,9 @@ public class Zoo extends ArrayList<Animal>{
         this.removeFish(i);
       }
     }
-  }
-*/
+    //this = cpy;
+  } */
+
   public void removeFish(Animal i){
     try{
       this.remove(i);
