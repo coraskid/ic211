@@ -1,5 +1,5 @@
 
-
+/*
 public class MainThread extends Thread {
   private DrawAq da;
   private boolean kill;
@@ -16,7 +16,7 @@ public class MainThread extends Thread {
       } catch (Exception e) {}
       da.step();
 
-      //da.overlap();
+      da.overlap();
       //check overlaps
       da.repaint();
     }
@@ -32,4 +32,4 @@ public class MainThread extends Thread {
     return new MainThread(da);
   }
 }
-
+*/

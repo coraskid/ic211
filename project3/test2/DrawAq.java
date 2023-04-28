@@ -4,6 +4,7 @@ import javax.swing.*;
 import javax.imageio.*;
 import java.awt.image.*;
 import java.io.*;
+import java.util.*;
 
 //uses class notes
 
@@ -49,21 +50,25 @@ public class DrawAq extends JComponent {
   }
     
   public void overlap(){
-    for(Animal i : zoo){ //bigger fish
-      
-      for(Animal j : zoo){ //smaller fish that gets eaten
+    ArrayList<Animal> cpy = (ArrayList<Animal>) zoo.clone();
+
+    //for(Animal i : zoo){ //bigger fish
+    for(Animal i : cpy){
+      for(Animal j : cpy){
+      //for(Animal j : zoo){ //smaller fish that gets eaten
         int iT = i.getType();
         int jT = j.getType();
         if((iT == 4 && (jT == 2 || jT == 3)) || ((iT == 2 || iT == 3) && jT == 1)){
           //System.out.println("checking");
           if(j.getShape().intersects((Rectangle2D)i.getShape())){
-            //System.out.println("checked!");
-            j.kill();
+            System.out.println(j.getID());
+            
           }
         }
       }
       
-    } 
+    }
+    
   }
 
   protected void paintComponent(Graphics g){
@@ -82,12 +87,8 @@ public class DrawAq extends JComponent {
     g2.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), null);
     //System.out.println(this.getWidth() + " " + this.getHeight());
     for(Animal i : zoo){
-      if(i.isAlive())
-        i.paint(g2); 
-      //i.step();
+      i.paint(g2);
     }
-   
-    this.overlap();
     
 
 

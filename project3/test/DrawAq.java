@@ -63,7 +63,8 @@ public class DrawAq extends JComponent {
         }
       }
       
-    } 
+    }
+    
   }
 
   protected void paintComponent(Graphics g){
@@ -82,12 +83,8 @@ public class DrawAq extends JComponent {
     g2.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), null);
     //System.out.println(this.getWidth() + " " + this.getHeight());
     for(Animal i : zoo){
-      if(i.isAlive())
-        i.paint(g2); 
-      //i.step();
+      i.paint(g2);
     }
-   
-    this.overlap();
     
 
 

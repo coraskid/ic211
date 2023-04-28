@@ -16,7 +16,7 @@ public class MainThread extends Thread {
       } catch (Exception e) {}
       da.step();
 
-      //da.overlap();
+      da.overlap();
       //check overlaps
       da.repaint();
     }
