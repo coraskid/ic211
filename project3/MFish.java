@@ -9,16 +9,21 @@ import javax.swing.*;
 public class MFish extends Animal {
   //MOVES UP DOWN LEFT RIGHT
   private int stepCount = 0;
-  private int direction;
+  private int dir; //1 left, 3 right
   private BufferedImage img;
+  private final double MVE = .0001;
+  private double startY;
+  private double angle;
   public MFish(TankSize ts){
     super(ts);
     //depthGoal = rand.nextInt(820);
-    this.y = rand.nextDouble();
+    this.startY = rand.nextDouble();
+    this.y = this.startY;
     this.x = 0;
     speed = 2;
     type = 3;
-    direction = 1;
+    dir = 1;
+    angle = 0;
 
     BufferedImage image = null;
     try {
@@ -31,16 +36,43 @@ public class MFish extends Animal {
   public void paint(Graphics2D g){
     //g.setColor(new Color(50, 150, 0));
     //g.fill(new Ellipse2D.Double((x*ts.getHorz()),(y*ts.getVert()),15,15));
-    if(alive)
+    if(alive && dir == 1)
       g.drawImage(img, (int)(x*ts.getHorz()), (int)(y*ts.getVert()), null);
+    if(alive && dir == 3)
+      g.drawImage(img, (int)(x*ts.getHorz()), (int)(y*ts.getVert()), -this.img.getWidth(), this.img.getHeight(), null);
+      
   }
 
   public void step(){
-    if ( x < ts.getHorz())
-      x += (speed * .0001);
+    if (dir == 1){
+      this.stepLeft();
+    }
+    if (dir == 3){
+      this.stepRight();
+    }
+    y = startY + .1 * Math.cos(angle);
+    angle = (angle + .005) % 360;
+
   }
 
-  //private void stepleft(
+  
+
+
+  private void stepLeft(){
+    x += (speed * MVE);
+    if( x >= 1) {
+      dir = 3;
+      x -= 2*(speed * MVE);
+    }
+  }
+  private void stepRight(){
+    x -= (speed * MVE);
+    if(x <= 0) {
+      dir = 1;
+      x += 2*(speed * MVE);
+    }
+  }
+
 
 
 

@@ -42,12 +42,15 @@ public class SFish extends Animal {
       this.stepRight();
     }
     //FIX
-    //int vertMove = rand.next(25);
+    int vertMove = rand.nextInt(10);
+    //System.out.println(vertMove);
     if(vertMove == 2){
       this.stepUp();
+      System.out.println(vertMove);
     }
     if(vertMove == 3){
       this.stepDown();
+      System.out.println(vertMove);
     }
   }
   private void stepLeft(){
