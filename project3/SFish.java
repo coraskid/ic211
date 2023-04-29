@@ -31,29 +31,32 @@ public class SFish extends Animal {
   public void paint(Graphics2D g){
     //g.setColor(new Color(50, 150, 0));
     //g.fill(new Ellipse2D.Double((x*ts.getHorz()),(y*ts.getVert()),15,15));
-    if(alive)
+    if(alive && dir == 1)
       g.drawImage(img, (int)(x*ts.getHorz()), (int)(y*ts.getVert()), null);
+    if(alive && dir == 3)
+      g.drawImage(img, (int)(x*ts.getHorz()), (int)(y*ts.getVert()), -this.img.getWidth(), this.img.getHeight(), null);
+
   }
 
   public void step(){
     if (dir == 1){
-      this.stepLeft();
-    } else if (dir == 3){
       this.stepRight();
+    } else if (dir == 3){
+      this.stepLeft();
     }
     //FIX
     int vertMove = rand.nextInt(10);
     //System.out.println(vertMove);
     if(vertMove == 2){
       this.stepUp();
-      System.out.println(vertMove);
+      //System.out.println(vertMove);
     }
     if(vertMove == 3){
       this.stepDown();
-      System.out.println(vertMove);
+      //System.out.println(vertMove);
     }
   }
-  private void stepLeft(){
+  private void stepRight(){
     x += (speed * MVE);
     if( x >= 1) {
       dir = 3;
@@ -62,7 +65,7 @@ public class SFish extends Animal {
         this.stepDown();
     }
   }
-  private void stepRight(){
+  private void stepLeft(){
     x -= (speed * MVE);
     if(x <= 0) {
       dir = 1;

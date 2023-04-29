@@ -45,10 +45,10 @@ public class MFish extends Animal {
 
   public void step(){
     if (dir == 1){
-      this.stepLeft();
+      this.stepRight();
     }
     if (dir == 3){
-      this.stepRight();
+      this.stepLeft();
     }
     y = startY + .1 * Math.cos(angle);
     angle = (angle + .005) % 360;
@@ -58,14 +58,14 @@ public class MFish extends Animal {
   
 
 
-  private void stepLeft(){
+  private void stepRight(){
     x += (speed * MVE);
     if( x >= 1) {
       dir = 3;
       x -= 2*(speed * MVE);
     }
   }
-  private void stepRight(){
+  private void stepLeft(){
     x -= (speed * MVE);
     if(x <= 0) {
       dir = 1;
