@@ -20,6 +20,7 @@ public class SFish extends Animal {
     speed = 2;
     type = 2;
     dir = 1;
+    
 
     BufferedImage image = null;
     try {
@@ -39,6 +40,7 @@ public class SFish extends Animal {
   }
 
   public void step(){
+    super.step();
     if (dir == 1){
       this.stepRight();
     } else if (dir == 3){

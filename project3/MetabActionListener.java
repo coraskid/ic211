@@ -3,20 +3,20 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.event.*;
 
-public class SpeedActionListener implements ChangeListener {
-  private JComboBox speedType;
-  private JSlider speed;
+public class MetabActionListener implements ChangeListener {
+  private JComboBox metabType;
+  private JSlider metab;
   private Zoo zoo;
 
-  public SpeedActionListener(JComboBox sT, JSlider sF, Zoo zoo){
-    this.speedType = sT;
-    this.speed = sF;
+  public MetabActionListener(JComboBox mT, JSlider mF, Zoo zoo){
+    this.metabType = mT;
+    this.metab = mF;
     this.zoo = zoo;
   }
 
   public void stateChanged(ChangeEvent e){
-    int newSpeed = speed.getValue();
-    String type = (String) speedType.getSelectedItem();
+    int newMetab = metab.getValue();
+    String type = (String) metabType.getSelectedItem();
     int intType = 0;
     if (type.equals("SFish")){
       intType = 2;
@@ -27,7 +27,7 @@ public class SpeedActionListener implements ChangeListener {
     if (type.equals("Shark")){
       intType = 4;
     }
-    zoo.changeSpeed(intType, newSpeed);
+    zoo.changeMetab(intType, newMetab);
   }
 }
 

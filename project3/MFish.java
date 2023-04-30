@@ -44,6 +44,7 @@ public class MFish extends Animal {
   }
 
   public void step(){
+    super.step();
     if (dir == 1){
       this.stepRight();
     }

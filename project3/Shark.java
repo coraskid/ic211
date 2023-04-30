@@ -41,6 +41,7 @@ public class Shark extends Animal {
 
   
   public void step(){
+    super.step();
     if(stepRand != 0){
       stepRand --;
     } else {
