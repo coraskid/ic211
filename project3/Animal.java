@@ -8,6 +8,7 @@ public abstract class Animal {
   //private int health;
   //private int hunger;
   protected int speed;
+  protected int metab;
   protected boolean alive;
   protected double x, y;
   protected int type;

@@ -62,14 +62,14 @@ public class Shark extends Animal {
   
   public void stepRightUp(){ //dir =1 
     x += (speed * MVE);
-    y += (speed * MVE);
+    y -= (speed * MVE);
     if(x >=1){
       dir = 4;
       x -= 2*(speed * MVE);
     }
     if(y <= 0){
       dir = 2;
-      y -= 2*(speed * MVE);
+      y += 2*(speed * MVE);
     }
     if (x >= 1 && y <= 0){
       dir = 3;
@@ -77,14 +77,14 @@ public class Shark extends Animal {
   }
   public void stepRightDown(){ //dir =2 
     x += (speed * MVE);
-    y -= (speed * MVE);
+    y += (speed * MVE);
     if(x >=1){
       dir = 3;
       x -= 2*(speed * MVE);
     }
     if(y >= 1){
       dir = 1;
-      y += 2*(speed * MVE);
+      y -= 2*(speed * MVE);
     }
     if (x >= 1 && y <= 0){
       dir = 4;

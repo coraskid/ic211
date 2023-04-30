@@ -29,6 +29,10 @@ public class AddActionListener implements ActionListener {
     if (type.equals("Shark")){
       zoo.addSh();
     }
+    if (type.equals("10 Plankton")){
+      for(int i = 0; i < 10; i++)
+        zoo.addP();
+    }
     if(!mt.isAlive()){
       mt.deadPaint();
     }
