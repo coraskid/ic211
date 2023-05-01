@@ -13,10 +13,11 @@ public class Stats implements JPanel, MouseListener {
     title = new JLabel("Fish Stats");
     clear = new JButton("Clear Stats");
     
+
     
 
-    JPanel m = new JPanel();
-    m.setLayout(new BoxLayout(m, BoxLayout.PAGE_AXIS));
+    JPanel main = new JPanel();
+    main.setLayout(new BoxLayout(main, BoxLayout.PAGE_AXIS));
     
 
 
