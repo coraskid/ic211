@@ -13,7 +13,7 @@ public class Plankton extends Animal {
     super(ts);
     //Random rand = new Random();
     //depthGoal = rand.nextInt(820);
-    depthGoal = rand.nextDouble() / .75;
+    depthGoal = rand.nextDouble() * .75;
     this.y = 0;
     //this.x = rand.nextInt(1791);
     this.x = rand.nextDouble();

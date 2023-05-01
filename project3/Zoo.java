@@ -43,7 +43,14 @@ public class Zoo extends ArrayList<Animal>{
         i.setSpeed(speed);
       }
     }
+  }
 
+  public void changeMetab(int type, int metab){
+    for(Animal i : this) {
+      if(i.getType() == type){
+        i.setMetab(metab);
+      }
+    }
   }
 
   //only alive fish

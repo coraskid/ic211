@@ -61,6 +61,7 @@ public class DrawAq extends JComponent {
           //System.out.println("checking");
           if(j.getShape().intersects((Rectangle2D)i.getShape())){
             //System.out.println("checked!");
+            i.eat();
             j.kill();
           }
         }
