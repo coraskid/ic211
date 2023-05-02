@@ -1,0 +1,66 @@
+Cora Skidmore m255844
+
+Usage: 
+java Proj [optional background image file name]
+If no File name is inputted, the program will use aq.jpg
+
+Controls:
+Run/Pause button will pause and restart the aquarium.
+Adding fish: choose what species you want to add from the drop down to
+the left of the Add button, and then press the add button as many times
+as you want to add fish. There is an option to add 10 plankton to making
+feeding the fish easier.
+Speed: choose desired species from the drop down menu under SPEED, then
+make desired adjustments to the slider to the right of the drop down
+menu.
+Metabolism: choose desired species from the drop down menu under
+METABOLISM, then make desired adjustements to the slider to the right of
+the drop down menu.
+Fish Stats: Click a fish (not plankton) on the aquarium to see its
+current stats. Click the Clear Stats button to clear all of the stats.
+
+Fish Behavior: 
+Small Fish: The are initially restricted to the top 60% of the screen
+but can move farther down.
+Medium Fish: Move in a sin movement from one end of the screen to the
+other.
+Shark: Move diagonally for a randomly set amount of steps or until it
+reaches the wall before changing direction.
+
+OOP Design:
+Encapsulation: This can be seen with the placement of methods with data
+fields. One example is in the Zoo class, where the ArrayList is apart of
+the class, but it also includes methods that deal and manage that
+arraylist. All of the Animal sub classes also see this encapsulation as
+there are many methods set to manage the indvidual animals. 
+Data Hiding: This can be seen in the use of private, and in some cases,
+protected data fields in all classes. 
+Inheritance: This can be seen a few times in this project. One example
+with the JPanels in ControlPanel.java and Stats.java, which add
+additional functionality to the JPanel class. Specifically, Stats.java
+also takes on the functionality of a MouseListener. Another example is
+with the Zoo class which adds to the functionality of an ArrayList with
+its own methods. All of the ActionListener classes are also an extended
+form of an ActionListener or ChangeListener, adding on to those
+functionality.
+Polymorphism: This can mainly be seen with the Animal classes. The zoo
+is set up to hold an array list of Animals, but those can include any
+of the child classes of Animal; Plankton, small fish, medium fish or
+sharks.
+
+
+General Overview of how program works:
+Proj.java sets up all the parts and starts up the main thread
+DrawAq.java draws the whole area with a paintcomponent method
+Zoo.java holds all of the animals and methods with dealing with adding
+and managing animals
+MainThread.java has control over the thread that moves the fish and
+redraws them, also controls when that thread stops and a new thread
+starts
+ControlPanel.java contols all of the GUI elements of the left
+TankSize.java controls and updates the tanksize for all animals to use
+Animal.java; Plankton.java; SFish.java; MFish.java; Shark.java all
+outline an animals movement
+The rest of the classes are action listeners waiting for something to
+happen in the adquarium
+
