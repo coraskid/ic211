@@ -9,10 +9,11 @@ public class Proj {
     JFrame   f = new JFrame();
     TankSize ts = new TankSize();
     Zoo zoo = new Zoo(ts);
+    Stats stat = new Stats(zoo);
     //do without args[0] 
-    DrawAq d = new DrawAq(args[0], zoo, ts);
+    DrawAq d = new DrawAq(args[0], zoo, ts, stat);
     MainThread t = new MainThread(d);
-    ControlPanel cp = new ControlPanel(t, zoo);
+    ControlPanel cp = new ControlPanel(t, zoo, stat);
     f.add(d);
     f.add(cp, BorderLayout.WEST);
     f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

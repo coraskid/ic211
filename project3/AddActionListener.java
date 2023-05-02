@@ -20,10 +20,10 @@ public class AddActionListener implements ActionListener {
     if (type.equals("Plankton")){
       zoo.addP();
     }
-    if (type.equals("SFish")){
+    if (type.equals("Small Fish")){
       zoo.addSF();
     }
-    if (type.equals("MFish")){
+    if (type.equals("Medium Fish")){
       zoo.addMF();
     }
     if (type.equals("Shark")){

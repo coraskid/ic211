@@ -18,10 +18,10 @@ public class SpeedActionListener implements ChangeListener {
     int newSpeed = speed.getValue();
     String type = (String) speedType.getSelectedItem();
     int intType = 0;
-    if (type.equals("SFish")){
+    if (type.equals("Small Fish")){
       intType = 2;
     }
-    if (type.equals("MFish")){
+    if (type.equals("Medium Fish")){
       intType = 3;
     }
     if (type.equals("Shark")){

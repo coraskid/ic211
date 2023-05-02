@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Arrays;
+import javax.swing.*;
 public class ControlPanel extends JPanel{
   private JLabel test;
   private JTextField t2;
@@ -14,13 +15,14 @@ public class ControlPanel extends JPanel{
   private JComboBox metabType;
   private JSlider metabChange;
   private JLabel metabTitle;
-  private final String[] types = {"Shark", "MFish", "SFish", "Plankton", "10 Plankton"};
+  private Stats stat;
+  private final String[] types = {"Shark", "Medium Fish", "Small Fish", "Plankton", "10 Plankton"};
 
-  public ControlPanel(MainThread t, Zoo zoo){
-    test = new JLabel("Working?");
-    test.setPreferredSize(new Dimension(60,15));
+  public ControlPanel(MainThread t, Zoo zoo, Stats s){
+    //test = new JLabel("Working?");
+    //test.setPreferredSize(new Dimension(60,15));
 
-    t2 = new JTextField("please", 10);
+    //t2 = new JTextField("please", 10);
     
     addType = new JComboBox<String>(types);
     addFish = new JButton("Add");
@@ -51,12 +53,11 @@ public class ControlPanel extends JPanel{
     metabPanel.add(metabChange, BorderLayout.EAST);
     metabPanel.add(metabTitle, BorderLayout.NORTH);
 
- 
-    
-
     onOff = new JButton("Run/Pause");
     onOff.addActionListener(new PauseActionListener(onOff, t, zoo));
     
+    stat = s;
+
     //full vertical layout of panel
     JPanel p = new JPanel();
     p.setLayout(new BoxLayout(p, BoxLayout.PAGE_AXIS)); 
@@ -64,8 +65,9 @@ public class ControlPanel extends JPanel{
     p.add(addPanel);
     p.add(speedPanel);
     p.add(metabPanel);
-    p.add(test);
-    p.add(t2);
+    p.add(stat);
+    //p.add(test);
+    //p.add(t2);
 
     this.add(p, BorderLayout.NORTH);
   }

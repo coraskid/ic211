@@ -35,7 +35,7 @@ public class SFish extends Animal {
     if(alive && dir == 1)
       g.drawImage(img, (int)(x*ts.getHorz()), (int)(y*ts.getVert()), null);
     if(alive && dir == 3)
-      g.drawImage(img, (int)(x*ts.getHorz()), (int)(y*ts.getVert()), -this.img.getWidth(), this.img.getHeight(), null);
+      g.drawImage(img, (int)(x*ts.getHorz()) + img.getWidth(), (int)(y*ts.getVert()), -this.img.getWidth(), this.img.getHeight(), null);
 
   }
 

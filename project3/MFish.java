@@ -17,7 +17,7 @@ public class MFish extends Animal {
   public MFish(TankSize ts){
     super(ts);
     //depthGoal = rand.nextInt(820);
-    this.startY = rand.nextDouble();
+    this.startY = rand.nextDouble()*.9 + .1;
     this.y = this.startY;
     this.x = 0;
     speed = 2;
@@ -39,7 +39,7 @@ public class MFish extends Animal {
     if(alive && dir == 1)
       g.drawImage(img, (int)(x*ts.getHorz()), (int)(y*ts.getVert()), null);
     if(alive && dir == 3)
-      g.drawImage(img, (int)(x*ts.getHorz()), (int)(y*ts.getVert()), -this.img.getWidth(), this.img.getHeight(), null);
+      g.drawImage(img, (int)(x*ts.getHorz()) + img.getWidth(), (int)(y*ts.getVert()), -this.img.getWidth(), this.img.getHeight(), null);
       
   }
 

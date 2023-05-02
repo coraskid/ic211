@@ -100,6 +100,14 @@ public class Zoo extends ArrayList<Animal>{
       this.remove(i);
     } catch (Exception e){}
   }
-
+  //might need to throw exception here
+  public Animal checkClicked(double xClick, double yClick){
+    for(Animal i : this){
+      if(i.getShape().contains(xClick, yClick) && i.getType() != 1){
+        return i;
+      }
+    }
+    throw new AnimalException("Fish not found");
+  }
 
 }

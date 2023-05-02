@@ -35,6 +35,12 @@ public abstract class Animal {
   public int getType(){
     return this.type;
   }
+  public int getSpeed(){
+    return this.speed;
+  }
+  public double getHealth(){
+    return this.health;
+  }
 
   public void setSpeed(int s){
     this.speed = s;

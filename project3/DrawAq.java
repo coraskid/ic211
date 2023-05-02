@@ -20,7 +20,8 @@ public class DrawAq extends JComponent {
   private Zoo zoo;
   private TankSize ts;
 
-  public DrawAq(String fname, Zoo z, TankSize ts){
+  public DrawAq(String fname, Zoo z, TankSize ts, Stats stat){
+    addMouseListener(stat);
     BufferedImage img = null;
     this.ts = ts;
     this.zoo = z;
