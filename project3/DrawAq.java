@@ -6,26 +6,32 @@ import java.awt.image.*;
 import java.io.*;
 import java.util.*;
 
-//uses class notes
-
+/**
+ * This class draws the aquarium whenever it is told to due so; it does so by
+ * looking at all the current fish (not dead) and drawing them on the screen; it
+ * also sets up the mouse listener the stats class
+ * This has a lot of elements from class notes
+ * @author Cora Skidmore
+ */
 public class DrawAq extends JComponent {
-  //private ArrayList<Animal> fish;
-  /*
-  public DrawAq(){
-    DrawAq("aquar.png");
-  }
-  */
   private Plankton t;
   BufferedImage img;
   private Zoo zoo;
   private TankSize ts;
-
+  /**
+   * constructor: sets up background photo and mouse listener; also saves the
+   * zoo and the tank size
+   * @param fname file name of the background image
+   * @param z Zoo
+   * @param ts Tanksize
+   * @param stat stats (mouseListener)
+   */
   public DrawAq(String fname, Zoo z, TankSize ts, Stats stat){
     addMouseListener(stat);
-    BufferedImage img = null;
     this.ts = ts;
     this.zoo = z;
-    //t = new Plankton();
+    //Image set up
+    BufferedImage img = null;
     int height = 0;
     int width = 0;
     try {
@@ -37,37 +43,34 @@ public class DrawAq extends JComponent {
       width = 300;
     }
     this.img = img;
-    System.out.println(height + " " + width);
     setPreferredSize(new Dimension(height, width));
-    //Graphics2D g2 = new Graphics2D();
-    //g2.drawImage(img, width, height, null);
   }
-
+  /**
+   * This method steps every Animal in the zoo one spot forward
+   */
   public void step(){
     ArrayList<Animal> cpy = zoo.cpy();
     for(Animal i : cpy){
       i.step();
     }
-    //zoo.overlap();
   }
-    
+  /**
+   * This method checks if any Animals (that are alive) are overlapping
+   */
   public void overlap(){
-    ArrayList<Animal> cpy = zoo.cpy();
+    ArrayList<Animal> cpy = zoo.cpy(); //only copies alive fish
     for(Animal i : cpy){ //bigger fish
-      
       for(Animal j : cpy){ //smaller fish that gets eaten
         int iT = i.getType();
         int jT = j.getType();
+        //check that overlapping fish can actually eat the other
         if((iT == 4 && (jT == 2 || jT == 3)) || ((iT == 2 || iT == 3) && jT == 1)){
-          //System.out.println("checking");
           if(j.getShape().intersects((Rectangle2D)i.getShape())){
-            //System.out.println("checked!");
-            i.eat();
-            j.kill();
+            i.eat(); //updating health (+5)
+            j.kill(); //killing
           }
         }
       }
-      
     }
    /* 
     for(Animal i : zoo){
@@ -77,32 +80,31 @@ public class DrawAq extends JComponent {
     }
     */
   }
-
+  
+  /**
+   * This method paints the area every time repaint method is called
+   * @param g Graphics
+   */
   protected void paintComponent(Graphics g){
     super.paintComponent(g);
     Graphics2D g2 = (Graphics2D)g;
-
+    
+    //Voodoo?
     g2.setRenderingHint(
       RenderingHints.KEY_ANTIALIASING,
       RenderingHints.VALUE_ANTIALIAS_ON);
     g2.setRenderingHint(
       RenderingHints.KEY_RENDERING,
       RenderingHints.VALUE_RENDER_QUALITY);
-
+    //reset the tanksize incase of window movement
     ts.setHorz(this.getWidth());
     ts.setVert(this.getHeight());
+    //draw background image
     g2.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), null);
-    //System.out.println(this.getWidth() + " " + this.getHeight());
+    //draw fish
     ArrayList<Animal> cpy = zoo.cpy();
     for(Animal i : cpy){
       i.paint(g2); 
-      //i.step();
     }
-   
-    //this.overlap();
-    
-
-
-
   }
 }

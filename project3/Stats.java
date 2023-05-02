@@ -3,6 +3,11 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 
+/**
+ * This class makes a mini JPanel that specifically displays the stats of a
+ * selected fish/shark; the mouse listener is activated in DrawAq
+ * @author Cora Skidmore
+ */
 public class Stats extends JPanel implements MouseListener {
   private Zoo zoo;
   private JLabel title;
@@ -14,11 +19,14 @@ public class Stats extends JPanel implements MouseListener {
   private JLabel healthT;
   private JLabel healthF;
 
-
+  /**
+   * constructor: only needs the zoo to get the stats
+   * @param zoo the zoo
+   */
   public Stats(Zoo zoo) {
     this.zoo = zoo;
     title = new JLabel("Fish Stats");
-    clear = new JButton("Clear Stats"); //button listener!!
+    clear = new JButton("Clear Stats"); 
     JPanel titleP = new JPanel(new FlowLayout());
     titleP.add(title);
     titleP.add(clear);
@@ -42,17 +50,18 @@ public class Stats extends JPanel implements MouseListener {
     healthP.add(healthF);
 
     clear.addActionListener(new StatsActionListener(clear, typeF, speedF, healthF));
-    //JPanel main = new JPanel();
     this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
     this.add(titleP);
     this.add(typeP);
     this.add(speedP);
     this.add(healthP);
-
-
   }
 
-
+  /**
+   * This method gets the x and y of where a click was and gets the stats up if
+   * a fish was there
+   * @param e MouseEvent
+   */
   public void mouseClicked(MouseEvent e) {
     Animal click = null;
     try {
@@ -67,11 +76,10 @@ public class Stats extends JPanel implements MouseListener {
     if (click.getType() == 4)
       typeF.setText("Shark");
     speedF.setText("" + click.getSpeed());
-    healthF.setText("" + click.getHealth());
-
-    
+    healthF.setText("" + click.getHealth()); 
   }
 
+  //Methods needed for MouseListener interface but not used here
   public void mouseEntered(MouseEvent e)  {}
 
   public void mouseExited(MouseEvent e)   {}
