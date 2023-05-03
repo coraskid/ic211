@@ -72,13 +72,6 @@ public class DrawAq extends JComponent {
         }
       }
     }
-   /* 
-    for(Animal i : zoo){
-      if(!i.isAlive()){
-        zoo.removeFish(i);
-      }
-    }
-    */
   }
   
   /**

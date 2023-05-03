@@ -65,3 +65,9 @@ outline an animals movement
 The rest of the classes are action listeners waiting for something to
 happen in the adquarium
 
+There are some NOTES in the javadoc headers for some specific class
+notes
+Other notes:
+Fish are not removed from the ArrayList, just marked to be not seen
+This is due to a collision exception that has to do with two threads
+trying to access and change the same arrayList.

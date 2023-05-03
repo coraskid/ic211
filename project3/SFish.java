@@ -27,7 +27,7 @@ public class SFish extends Animal {
     super(ts);
     this.y = rand.nextDouble() * .6;
     this.x = rand.nextDouble();
-    this.stepRand = rand.nextInt(50);
+    this.stepRand = rand.nextInt(150);
     this.dirRand = rand.nextInt(5);
     speed = 2;
     type = 2;
@@ -68,7 +68,7 @@ public class SFish extends Animal {
         this.stepDown();
       stepRand --;
     } else {
-      stepRand = rand.nextInt(50);
+      stepRand = rand.nextInt(150);
       dirRand = rand.nextInt(5);
     }
   }

@@ -14,9 +14,8 @@ public class PauseActionListener implements ActionListener {
    * Constructor takes the on/off button, the main thread and teh zoo
    * @param b on/off button
    * @param t main thread
-   * @param z the Zoo
    */
-  public PauseActionListener(JButton b, MainThread t, Zoo z){
+  public PauseActionListener(JButton b, MainThread t){
     this.b = b;
     this.t = t;
     this.z = z;
