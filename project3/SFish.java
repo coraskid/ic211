@@ -16,6 +16,8 @@ public class SFish extends Animal {
   private int dir;
   private BufferedImage img;
   private final double MVE = .0001;
+  private int stepRand; //how many steps in what ever direction
+  private int dirRand; //randomly selected direction
   /**
    * constructor Creates a small fish and puts in on the screen base on teh tank
    * size
@@ -25,6 +27,8 @@ public class SFish extends Animal {
     super(ts);
     this.y = rand.nextDouble() * .6;
     this.x = rand.nextDouble();
+    this.stepRand = rand.nextInt(50);
+    this.dirRand = rand.nextInt(5);
     speed = 2;
     type = 2;
     dir = 1;
@@ -57,14 +61,15 @@ public class SFish extends Animal {
     } else if (dir == 3){
       this.stepLeft();
     }
-    //FIX
-    int vertMove = rand.nextInt(10);
-    //System.out.println(vertMove);
-    if(vertMove == 2){
-      this.stepUp();
-    }
-    if(vertMove == 3){
-      this.stepDown();
+    if(stepRand != 0){
+      if(dirRand == 2)
+        this.stepUp();
+      if(dirRand == 3)
+        this.stepDown();
+      stepRand --;
+    } else {
+      stepRand = rand.nextInt(50);
+      dirRand = rand.nextInt(5);
     }
   }
   /**
@@ -95,15 +100,19 @@ public class SFish extends Animal {
    * This method steps up is there is room to do so
    */
   private void stepUp(){
-    if((y + (500 * MVE)) > 1)
-      y += (500 * MVE);
+    y -= (speed * MVE);
+    if(y <= 0) {
+      y += 2 * (speed *MVE);
+    }
   }
   /**
    * This method steps down if there is room to do so
    */
   private void stepDown(){
-    if((y - (500 * MVE)) < 0)
-      y -= (500 *MVE);
+    y += (speed *MVE);
+    if(y >= 1){
+      y -= 2* (speed * MVE);
+    }
   }
   /**
    * This method returns a shape that defines where the fish is; used for any

@@ -30,13 +30,6 @@ public class PauseActionListener implements ActionListener {
   public void actionPerformed(ActionEvent e){
     if (t.isAlive()){
       t.kill();
-      //Remove unused fish here?
-      /*
-      for(Animal i : z){
-        if(!i.isAlive()){
-          z.removeFish(i);
-        }
-      }*/
     } else {
       t = t.newCopy();
       t.start();

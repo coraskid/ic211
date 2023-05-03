@@ -82,7 +82,7 @@ public class Zoo extends ArrayList<Animal>{
   }
   /**
    * Copies the array list of only alive fish
-   * @return ArrayList<Animal> of all alive fish
+   * @return ArrayList of all alive Animals
    */
   public ArrayList<Animal> cpy(){
     ArrayList<Animal> cpy = new ArrayList<Animal>();

@@ -55,14 +55,14 @@ public abstract class Animal {
   }
   /**
    * Returns speed
-   * @returns int speed
+   * @return int speed
    */
   public int getSpeed(){
     return this.speed;
   }
   /**
    * Returns health
-   * @returns double health
+   * @return double health
    */
   public double getHealth(){
     return this.health;

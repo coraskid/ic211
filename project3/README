@@ -20,7 +20,8 @@ Fish Stats: Click a fish (not plankton) on the aquarium to see its
 current stats. Click the Clear Stats button to clear all of the stats.
 
 Fish Behavior: 
-Small Fish: The are initially restricted to the top 60% of the screen
+Small Fish: Move left and right to either end of the screen with a
+random up and down movement. The are initially restricted to the top 60% of the screen
 but can move farther down.
 Medium Fish: Move in a sin movement from one end of the screen to the
 other.

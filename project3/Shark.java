@@ -59,10 +59,13 @@ public class Shark extends Animal {
     if(stepRand != 0){
       stepRand --;
     } else {
+      /*
       if(dir == 2 || dir == 4)
         dir --;
       else
         dir++;
+        */
+      dir = rand.nextInt(4) + 1;
       stepRand = rand.nextInt(750) + 500;
     }
     if(dir == 1)
