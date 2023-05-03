@@ -71,3 +71,5 @@ Other notes:
 Fish are not removed from the ArrayList, just marked to be not seen
 This is due to a collision exception that has to do with two threads
 trying to access and change the same arrayList.
+Lots of the outlined code is from class notes, and anjusted. Mainly
+Proj.java, DrawAq.java, and MainThread.java, but there may be others.

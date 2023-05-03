@@ -4,6 +4,7 @@
  * driver class becuase I wanted some of my buttons to have complete access to
  * the class and the methods inside, I am aware I could have done it differently
  * , but I am in too deep
+ * NOTE: uses class notes
  * @author Cora Skidmore
  */
 public class MainThread extends Thread {
